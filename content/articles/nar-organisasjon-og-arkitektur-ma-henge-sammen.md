@@ -1,6 +1,7 @@
 ---
 title: "Når organisasjon og arkitektur må henge sammen"
 description: "Refleksjoner om hvorfor arkitektur, produktorganisering og styringsmodeller må utvikles sammen for å skape reell autonomi og effekt."
+heroImage: "/images/articles/Nar_organisasjon_og_arkitektur_må_henge_sammen.png"
 publishedDate: "2026-06-13"
 tags:
   - organisasjon

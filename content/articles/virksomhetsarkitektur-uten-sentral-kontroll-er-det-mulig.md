@@ -2,6 +2,7 @@
 title: "Virksomhetsarkitektur uten sentral kontroll – er det mulig?"
 description: "Refleksjoner om virksomhetsarkitektur i organisasjoner med høy grad av autonomi, og hvorfor tydelige beslutningsrom ofte er viktigere enn sentral kontroll."
 publishedDate: "2026-04-22"
+heroImage: "/images/articles/Virksomhetsarkitektur_uten_sentral_kontroll_er_det_mulig.png"
 tags:
   - beslutningsarkitektur
   - virksomhetsarkitektur

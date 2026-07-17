@@ -11,11 +11,25 @@ export interface Article {
   title: string;
   date: string;
   description: string;
+  heroImage?: string;
+  readingTime: number;
   draft?: boolean;
 }
 
 export interface ArticleWithContent extends Article {
   content: string;
+}
+
+export interface ArticleNavigation {
+  previous: { slug: string; title: string } | null;
+  next: { slug: string; title: string } | null;
+}
+
+const WORDS_PER_MINUTE = 200;
+
+function estimateReadingTime(text: string): number {
+  const words = text.trim().split(/\s+/).length;
+  return Math.max(1, Math.round(words / WORDS_PER_MINUTE));
 }
 
 export function getAllArticles(): Article[] {
@@ -31,13 +45,15 @@ export function getAllArticles(): Article[] {
       const slug = fileName.replace(/\.md$/, "");
       const fullPath = path.join(articlesDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, "utf8");
-      const { data } = matter(fileContents);
+      const { data, content } = matter(fileContents);
 
       return {
         slug,
         title: data.title,
         date: data.date,
         description: data.description,
+        heroImage: data.heroImage,
+        readingTime: estimateReadingTime(content),
         draft: data.draft ?? false,
       };
     })
@@ -72,8 +88,27 @@ export async function getArticleBySlug(
     title: data.title,
     date: data.date,
     description: data.description,
+    heroImage: data.heroImage,
+    readingTime: estimateReadingTime(markdownContent),
     draft: data.draft ?? false,
     content,
+  };
+}
+
+export function getArticleNavigation(slug: string): ArticleNavigation {
+  const articles = getAllArticles();
+  const index = articles.findIndex((a) => a.slug === slug);
+
+  if (index === -1) {
+    return { previous: null, next: null };
+  }
+
+  const newer = index > 0 ? articles[index - 1] : null;
+  const older = index < articles.length - 1 ? articles[index + 1] : null;
+
+  return {
+    previous: older ? { slug: older.slug, title: older.title } : null,
+    next: newer ? { slug: newer.slug, title: newer.title } : null,
   };
 }
 

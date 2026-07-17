@@ -4,7 +4,7 @@
 
 The MVP has one content type: **post**.
 
-A post is a Markdown file stored in `content/posts/`.
+A post is a Markdown file stored in `content/articles/`.
 
 Future content types (pages, notes, etc.) are out of scope until there is a demonstrated need.
 
@@ -17,6 +17,7 @@ Each post has YAML frontmatter with the following fields.
 | title       | string  | yes      | Article title. Used in headings and SEO. |
 | date        | string  | yes      | Publication date. Format: YYYY-MM-DD.    |
 | description | string  | yes      | Short summary. Used in blog list and meta tags. |
+| heroImage   | string  | no       | Path to hero image relative to public/. Stored in public/images/articles/. |
 | draft       | boolean | no       | Defaults to false. See draft strategy below. |
 
 Tags are excluded from the MVP. They are defined in the Phase 2 backlog and should not be added to frontmatter until that work begins.
@@ -28,6 +29,17 @@ Tags are excluded from the MVP. They are defined in the Phase 2 backlog and shou
 title: "Hvordan jeg bygde en publiseringsplattform"
 date: "2026-07-17"
 description: "En refleksjon over valg, prinsipper og prosess."
+---
+```
+
+### Example with hero image
+
+```yaml
+---
+title: "Eierskap over eget innhold"
+date: "2026-07-18"
+description: "Hvorfor jeg valgte å bygge en egen plattform."
+heroImage: "/images/articles/my-article-image.png"
 ---
 ```
 
@@ -46,7 +58,7 @@ draft: true
 
 The slug is derived from the filename. No explicit slug field in frontmatter.
 
-A file named `content/posts/min-foerste-artikkel.md` produces the URL `/blog/min-foerste-artikkel`.
+A file named `content/articles/min-foerste-artikkel.md` produces the URL `/blog/min-foerste-artikkel`.
 
 Rules:
 

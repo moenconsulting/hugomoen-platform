@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { getAllArticles } from "@/lib/articles";
 
@@ -24,27 +25,41 @@ export default function BlogPage() {
   return (
     <div>
       <h1 className="text-3xl font-semibold tracking-tight">Blogg</h1>
-      <ul className="mt-8 flex flex-col gap-8">
+      <ul className="mt-8 flex flex-col divide-y divide-foreground/5">
         {articles.map((article) => (
-          <li key={article.slug}>
-            <article>
-              <time
-                dateTime={article.date}
-                className="text-sm text-foreground/50"
+          <li key={article.slug} className="py-5 first:pt-0 last:pb-0">
+            <article className="flex gap-4">
+              <Link
+                href={`/blog/${article.slug}`}
+                className="shrink-0 w-[100px] h-[64px] rounded bg-foreground/5 overflow-hidden"
               >
-                {article.date}
-              </time>
-              <h2 className="mt-1 text-xl font-medium">
-                <Link
-                  href={`/blog/${article.slug}`}
-                  className="hover:underline underline-offset-4"
-                >
-                  {article.title}
-                </Link>
-              </h2>
-              <p className="mt-1 text-foreground/70">
-                {article.description}
-              </p>
+                {article.heroImage && (
+                  <Image
+                    src={article.heroImage}
+                    alt=""
+                    width={100}
+                    height={64}
+                    className="w-full h-full object-cover"
+                  />
+                )}
+              </Link>
+              <div className="min-w-0">
+                <div className="text-sm text-foreground/50">
+                  <time dateTime={article.date}>{article.date}</time>
+                  <span> · {article.readingTime} min</span>
+                </div>
+                <h2 className="mt-0.5 text-lg font-medium leading-snug">
+                  <Link
+                    href={`/blog/${article.slug}`}
+                    className="hover:underline underline-offset-4"
+                  >
+                    {article.title}
+                  </Link>
+                </h2>
+                <p className="mt-0.5 text-sm text-foreground/60 line-clamp-2">
+                  {article.description}
+                </p>
+              </div>
             </article>
           </li>
         ))}
