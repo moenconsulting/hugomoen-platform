@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { Geist } from "next/font/google";
 import Link from "next/link";
+import { siteUrl } from "@/lib/config";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,6 +17,12 @@ export const metadata: Metadata = {
   },
   description:
     "Artikler, refleksjoner og faglig innhold fra Hugo Moen.",
+  metadataBase: new URL(siteUrl),
+  openGraph: {
+    type: "website",
+    locale: "nb_NO",
+    siteName: "Hugo Knowledge Hub",
+  },
 };
 
 export default function RootLayout({

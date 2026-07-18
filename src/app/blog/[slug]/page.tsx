@@ -7,6 +7,7 @@ import {
   getArticleBySlug,
   getArticleNavigation,
 } from "@/lib/articles";
+import { getRelatedArticles } from "@/lib/topics";
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -24,10 +25,22 @@ export async function generateMetadata({
     return {};
   }
 
-  return {
+  const metadata: Metadata = {
     title: article.title,
     description: article.description,
+    openGraph: {
+      type: "article",
+      title: article.title,
+      description: article.description,
+      publishedTime: article.date,
+      authors: ["Hugo Moen"],
+      ...(article.heroImage && {
+        images: [{ url: article.heroImage, width: 1200, height: 630 }],
+      }),
+    },
   };
+
+  return metadata;
 }
 
 export default async function ArticlePage({
@@ -43,6 +56,7 @@ export default async function ArticlePage({
   }
 
   const { previous, next } = getArticleNavigation(slug);
+  const related = getRelatedArticles(slug);
 
   return (
     <article>
@@ -104,6 +118,31 @@ export default async function ArticlePage({
           </div>
         </div>
       </footer>
+
+      {related.length > 0 && (
+        <section className="mt-12 border-t border-foreground/10 pt-8">
+          <h2 className="text-sm font-medium text-foreground/50">
+            Relaterte artikler
+          </h2>
+          <ul className="mt-4 space-y-4">
+            {related.map((r) => (
+              <li key={r.slug}>
+                <Link
+                  href={`/blog/${r.slug}`}
+                  className="block rounded-lg border border-foreground/5 px-4 py-3 hover:border-foreground/15 transition-colors"
+                >
+                  <h3 className="text-sm font-medium leading-snug">
+                    {r.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-foreground/50 leading-snug line-clamp-2">
+                    {r.description}
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {(previous || next) && (
         <nav className="mt-12 flex items-start justify-between gap-8 border-t border-foreground/10 pt-8 text-sm">

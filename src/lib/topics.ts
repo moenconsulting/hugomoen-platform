@@ -98,3 +98,22 @@ export function getArticlesByTag(tag: string): Article[] {
 export function getAllTopicSlugs(): string[] {
   return getAllTopics().map((t) => t.slug);
 }
+
+export function getRelatedArticles(slug: string, limit = 3): Article[] {
+  const articles = getAllArticles();
+  const current = articles.find((a) => a.slug === slug);
+  if (!current || current.tags.length === 0) return [];
+
+  const currentTags = new Set(current.tags);
+
+  return articles
+    .filter((a) => a.slug !== slug && a.tags.length > 0)
+    .map((a) => ({
+      article: a,
+      shared: a.tags.filter((t) => currentTags.has(t)).length,
+    }))
+    .filter((r) => r.shared > 0)
+    .sort((a, b) => b.shared - a.shared || (a.article.date > b.article.date ? -1 : 1))
+    .slice(0, limit)
+    .map((r) => r.article);
+}

@@ -1,9 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getAllArticles } from "@/lib/articles";
+import { getAllTopics } from "@/lib/topics";
 
 export default function Home() {
-  const articles = getAllArticles().slice(0, 5);
+  const allArticles = getAllArticles();
+  const featured = allArticles[0];
+  const recent = allArticles.slice(1, 6);
+  const topics = getAllTopics();
 
   return (
     <div>
@@ -12,34 +16,102 @@ export default function Home() {
           <h1 className="text-3xl font-semibold tracking-tight">
             Hugo Knowledge Hub
           </h1>
-          <p className="mt-3 max-w-md text-lg leading-relaxed text-foreground/70">
-            Artikler, refleksjoner og faglig innhold om teknologi, utvikling
-            og ledelse.
+          <p className="mt-3 max-w-md text-foreground/60 leading-relaxed">
+            Artikler og refleksjoner om plattformarkitektur,
+            virksomhetsarkitektur og samspillet mellom teknologi og
+            organisasjon.
           </p>
-          <Link
-            href="/blog"
-            className="mt-6 inline-block rounded-md bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-colors hover:bg-foreground/80"
-          >
-            Alle artikler
-          </Link>
         </div>
         <Image
           src="/images/articles/Hugo Moen Profilbilde.jpg"
           alt="Hugo Moen"
           width={160}
           height={160}
-          className="rounded-full w-32 h-32 sm:w-40 sm:h-40 object-cover"
+          className="rounded-full w-28 h-28 sm:w-36 sm:h-36 object-cover"
           priority
         />
       </section>
 
-      {articles.length > 0 && (
-        <section className="mt-16">
-          <h2 className="text-lg font-semibold tracking-tight text-foreground/50 uppercase text-xs">
-            Siste artikler
+      {featured && (
+        <section className="mt-14">
+          <h2 className="text-xs font-semibold uppercase tracking-wide text-foreground/40">
+            Siste publisering
           </h2>
-          <ul className="mt-4 flex flex-col divide-y divide-foreground/5">
-            {articles.map((article) => (
+          <Link
+            href={`/blog/${featured.slug}`}
+            className="mt-4 block rounded-lg border border-foreground/5 hover:border-foreground/15 transition-colors overflow-hidden"
+          >
+            {featured.heroImage && (
+              <Image
+                src={featured.heroImage}
+                alt={featured.title}
+                width={768}
+                height={400}
+                className="w-full h-auto"
+              />
+            )}
+            <div className="px-5 py-5">
+              <h3 className="text-lg font-semibold tracking-tight leading-snug">
+                {featured.title}
+              </h3>
+              <p className="mt-2 text-sm text-foreground/60 leading-relaxed">
+                {featured.description}
+              </p>
+              <div className="mt-3 text-xs text-foreground/40">
+                <time dateTime={featured.date}>{featured.date}</time>
+                <span> · {featured.readingTime} min lesetid</span>
+              </div>
+            </div>
+          </Link>
+        </section>
+      )}
+
+      {topics.length > 0 && (
+        <section className="mt-14">
+          <div className="flex items-baseline justify-between">
+            <h2 className="text-xs font-semibold uppercase tracking-wide text-foreground/40">
+              Emner
+            </h2>
+            <Link
+              href="/topics"
+              className="text-xs text-foreground/40 hover:text-foreground transition-colors"
+            >
+              Alle emner &rarr;
+            </Link>
+          </div>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+            {topics.slice(0, 6).map((topic) => (
+              <li key={topic.slug}>
+                <Link
+                  href={`/topics/${topic.slug}`}
+                  className="block rounded-lg border border-foreground/5 px-4 py-3 hover:border-foreground/15 transition-colors"
+                >
+                  <h3 className="text-sm font-medium">{topic.name}</h3>
+                  <p className="mt-1 text-xs text-foreground/50 leading-snug">
+                    {topic.description}
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {recent.length > 0 && (
+        <section className="mt-14">
+          <div className="flex items-baseline justify-between">
+            <h2 className="text-xs font-semibold uppercase tracking-wide text-foreground/40">
+              Flere artikler
+            </h2>
+            <Link
+              href="/blog"
+              className="text-xs text-foreground/40 hover:text-foreground transition-colors"
+            >
+              Alle artikler &rarr;
+            </Link>
+          </div>
+          <ul className="mt-4 divide-y divide-foreground/5">
+            {recent.map((article) => (
               <li key={article.slug} className="py-4 first:pt-0 last:pb-0">
                 <article className="flex gap-4">
                   <div className="shrink-0 w-[80px] h-[52px] rounded bg-foreground/5 overflow-hidden">
