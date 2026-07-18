@@ -6,6 +6,22 @@ export const metadata: Metadata = {
   title: "Emner",
   description:
     "Utforsk artikler etter emne — arkitektur, ledelse, strategi og mer.",
+  alternates: {
+    canonical: "/emner",
+  },
+  openGraph: {
+    type: "website",
+    url: "/emner",
+    title: "Emner | Hugo Moen",
+    description:
+      "Utforsk artikler etter emne — arkitektur, ledelse, strategi og mer.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Emner | Hugo Moen",
+    description:
+      "Utforsk artikler etter emne — arkitektur, ledelse, strategi og mer.",
+  },
 };
 
 export default function TopicsPage() {

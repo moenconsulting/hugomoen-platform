@@ -8,6 +8,7 @@ import {
   getStatusLabel,
 } from "@/lib/frameworks";
 import { getArticlesByFramework } from "@/lib/articles";
+import { siteUrl } from "@/lib/config";
 
 export function generateStaticParams() {
   return getAllFrameworkSlugs().map((slug) => ({ slug }));
@@ -65,8 +66,29 @@ export default async function FrameworkPage({
 
   const relatedArticles = getArticlesByFramework(slug);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: framework.title,
+    description: framework.description,
+    url: `${siteUrl}/frameworks/${slug}`,
+    author: {
+      "@type": "Person",
+      name: "Hugo Moen",
+      jobTitle: "Lead Architect",
+      url: `${siteUrl}/om`,
+    },
+    ...(framework.heroImage && {
+      image: `${siteUrl}${framework.heroImage}`,
+    }),
+  };
+
   return (
     <article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <header className="mb-8">
         <Link
           href="/frameworks"

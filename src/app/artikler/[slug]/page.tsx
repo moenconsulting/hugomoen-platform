@@ -11,6 +11,7 @@ import {
 } from "@/lib/articles";
 import { getFrameworkBySlug } from "@/lib/frameworks";
 import { getRelatedArticles } from "@/lib/topics";
+import { siteUrl } from "@/lib/config";
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -84,8 +85,35 @@ export default async function ArticlePage({
   const linkedFrameworks = frameworks.filter(Boolean);
   const translationLinks = getArticleTranslationLinks(article);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.description,
+    datePublished: article.date,
+    url: `${siteUrl}/artikler/${slug}`,
+    author: {
+      "@type": "Person",
+      name: "Hugo Moen",
+      jobTitle: "Lead Architect",
+      url: `${siteUrl}/om`,
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Hugo Moen",
+    },
+    inLanguage: article.language === "en" ? "en" : "nb",
+    ...(article.heroImage && {
+      image: `${siteUrl}${article.heroImage}`,
+    }),
+  };
+
   return (
     <article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <header className="mb-8">
         <div className="flex items-center justify-between">
           <div className="text-sm text-foreground/50">

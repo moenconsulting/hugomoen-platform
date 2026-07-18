@@ -1,7 +1,28 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getListingArticles } from "@/lib/articles";
 import { getAllTopics } from "@/lib/topics";
+import { siteUrl } from "@/lib/config";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "/",
+    title: "Hugo Knowledge Hub",
+    description:
+      "Artikler og refleksjoner om plattformarkitektur, virksomhetsarkitektur og samspillet mellom teknologi og organisasjon.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Hugo Knowledge Hub",
+    description:
+      "Artikler og refleksjoner om plattformarkitektur, virksomhetsarkitektur og samspillet mellom teknologi og organisasjon.",
+  },
+};
 
 export default function Home() {
   const allArticles = getListingArticles();
@@ -9,8 +30,27 @@ export default function Home() {
   const recent = allArticles.slice(1, 6);
   const topics = getAllTopics();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Hugo Knowledge Hub",
+    url: siteUrl,
+    description:
+      "Artikler og refleksjoner om plattformarkitektur, virksomhetsarkitektur og samspillet mellom teknologi og organisasjon.",
+    author: {
+      "@type": "Person",
+      name: "Hugo Moen",
+      jobTitle: "Lead Architect",
+      url: `${siteUrl}/om`,
+    },
+  };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="flex flex-col-reverse items-start gap-8 sm:flex-row sm:items-center">
         <div className="flex-1">
           <h1 className="text-3xl font-semibold tracking-tight">

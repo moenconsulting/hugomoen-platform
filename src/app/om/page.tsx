@@ -1,10 +1,27 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { siteUrl } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Om",
   description:
     "Hugo Moen er Lead Architect med fokus på plattformarkitektur, virksomhetsarkitektur og organisasjonsdesign.",
+  alternates: {
+    canonical: "/om",
+  },
+  openGraph: {
+    type: "profile",
+    url: "/om",
+    title: "Om Hugo Moen | Hugo Moen",
+    description:
+      "Hugo Moen er Lead Architect med fokus på plattformarkitektur, virksomhetsarkitektur og organisasjonsdesign.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Om Hugo Moen | Hugo Moen",
+    description:
+      "Hugo Moen er Lead Architect med fokus på plattformarkitektur, virksomhetsarkitektur og organisasjonsdesign.",
+  },
 };
 
 const topics = [
@@ -17,8 +34,28 @@ const topics = [
 ];
 
 export default function AboutPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Hugo Moen",
+    jobTitle: "Lead Architect",
+    url: `${siteUrl}/om`,
+    sameAs: ["https://www.linkedin.com/in/hugomoen/"],
+    image: `${siteUrl}/images/articles/Hugo Moen Profilbilde.jpg`,
+    knowsAbout: [
+      "Plattformarkitektur",
+      "Virksomhetsarkitektur",
+      "Beslutningsarkitektur",
+      "Organisasjonsdesign",
+    ],
+  };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="flex flex-col-reverse items-start gap-6 sm:flex-row">
         <div className="flex-1">
           <h1 className="text-3xl font-semibold tracking-tight">Hugo Moen</h1>

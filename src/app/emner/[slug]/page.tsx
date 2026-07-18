@@ -27,6 +27,20 @@ export async function generateMetadata({
   return {
     title: topic.name,
     description: topic.description,
+    alternates: {
+      canonical: `/emner/${slug}`,
+    },
+    openGraph: {
+      type: "website",
+      url: `/emner/${slug}`,
+      title: `${topic.name} | Hugo Moen`,
+      description: topic.description,
+    },
+    twitter: {
+      card: "summary",
+      title: `${topic.name} | Hugo Moen`,
+      description: topic.description,
+    },
   };
 }
 

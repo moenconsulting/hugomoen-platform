@@ -6,6 +6,22 @@ export const metadata: Metadata = {
   title: "Rammeverk",
   description:
     "Rammeverk og modeller for arkitektur, styring og beslutninger.",
+  alternates: {
+    canonical: "/frameworks",
+  },
+  openGraph: {
+    type: "website",
+    url: "/frameworks",
+    title: "Rammeverk | Hugo Moen",
+    description:
+      "Rammeverk og modeller for arkitektur, styring og beslutninger.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Rammeverk | Hugo Moen",
+    description:
+      "Rammeverk og modeller for arkitektur, styring og beslutninger.",
+  },
 };
 
 export default function FrameworksPage() {

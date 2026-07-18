@@ -6,6 +6,20 @@ import { getListingArticles } from "@/lib/articles";
 export const metadata: Metadata = {
   title: "Artikler",
   description: "Artikler om teknologi, utvikling og ledelse.",
+  alternates: {
+    canonical: "/artikler",
+  },
+  openGraph: {
+    type: "website",
+    url: "/artikler",
+    title: "Artikler | Hugo Moen",
+    description: "Artikler om teknologi, utvikling og ledelse.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Artikler | Hugo Moen",
+    description: "Artikler om teknologi, utvikling og ledelse.",
+  },
 };
 
 export default function ArticlesPage() {
