@@ -23,7 +23,7 @@ language: "en"
 translationKey: "decision-problem"
 
 featured: true
-draft: true
+draft: false
 
 heroImage: "/images/articles/decision-problem.jpg"
 ---
