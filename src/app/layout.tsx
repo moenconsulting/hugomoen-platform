@@ -41,15 +41,15 @@ export default function RootLayout({
             <ul className="flex gap-6 text-sm">
               <li>
                 <Link
-                  href="/blog"
+                  href="/artikler"
                   className="hover:underline underline-offset-4"
                 >
-                  Blogg
+                  Artikler
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/topics"
+                  href="/emner"
                   className="hover:underline underline-offset-4"
                 >
                   Emner

@@ -4,7 +4,7 @@
 
 - [ ] Opprette Next.js løsning
 - [ ] Forside
-- [ ] Bloggliste
+- [ ] Artikkelliste
 - [ ] Artikkelside
 - [ ] About-side
 - [ ] Markdown-baserte artikler

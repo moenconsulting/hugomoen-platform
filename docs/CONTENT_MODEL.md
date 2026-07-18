@@ -16,7 +16,7 @@ Each post has YAML frontmatter with the following fields.
 |-------------|---------|----------|------------------------------------------|
 | title       | string  | yes      | Article title. Used in headings and SEO. |
 | date        | string  | yes      | Publication date. Format: YYYY-MM-DD.    |
-| description | string  | yes      | Short summary. Used in blog list and meta tags. |
+| description | string  | yes      | Short summary. Used in article list and meta tags. |
 | heroImage   | string  | no       | Path to hero image relative to public/. Stored in public/images/articles/. |
 | draft       | boolean | no       | Defaults to false. See draft strategy below. |
 | tags        | string[]| no       | List of topic slugs. Used to generate topic pages. |
@@ -60,7 +60,7 @@ draft: true
 
 The slug is derived from the filename. No explicit slug field in frontmatter.
 
-A file named `content/articles/min-foerste-artikkel.md` produces the URL `/blog/min-foerste-artikkel`.
+A file named `content/articles/min-foerste-artikkel.md` produces the URL `/artikler/min-foerste-artikkel`.
 
 Rules:
 
@@ -73,7 +73,7 @@ This keeps the system simple: one file, one slug, no ambiguity.
 
 ## Draft Strategy
 
-A post with `draft: true` is excluded from the blog list and from static generation in production builds.
+A post with `draft: true` is excluded from the article list and from static generation in production builds.
 
 In local development, drafts are visible so the author can preview them.
 

@@ -29,14 +29,14 @@ Analytics data is only collected on the production deployment. Local development
 
 ### Per-page data
 
-Every page on the site is tracked individually. Article URLs follow the pattern `/blog/[slug]`, so article-level performance is visible directly in the dashboard.
+Every page on the site is tracked individually. Article URLs follow the pattern `/artikler/[slug]` (previously `/blog/[slug]`), so article-level performance is visible directly in the dashboard.
 
 ## Measuring article performance
 
 To evaluate how an article performs:
 
 1. Open the Analytics tab in Vercel.
-2. Filter by the article URL, e.g. `/blog/eierskap-over-eget-innhold`.
+2. Filter by the article URL, e.g. `/artikler/eierskap-over-eget-innhold`.
 3. Review page views, unique visitors, and referrer sources.
 
 Useful comparisons:

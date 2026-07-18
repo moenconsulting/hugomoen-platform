@@ -1,0 +1,8 @@
+{
+  "redirects": [
+    { "source": "/blog", "destination": "/artikler", "permanent": true },
+    { "source": "/blog/:slug", "destination": "/artikler/:slug", "permanent": true },
+    { "source": "/topics", "destination": "/emner", "permanent": true },
+    { "source": "/topics/:slug", "destination": "/emner/:slug", "permanent": true }
+  ]
+}

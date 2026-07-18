@@ -47,7 +47,7 @@ export default async function TopicPage({
   return (
     <div>
       <Link
-        href="/topics"
+        href="/emner"
         className="text-sm text-foreground/40 hover:text-foreground transition-colors"
       >
         &larr; Alle emner
@@ -68,7 +68,7 @@ export default async function TopicPage({
         {articles.map((article) => (
           <li key={article.slug}>
             <Link
-              href={`/blog/${article.slug}`}
+              href={`/artikler/${article.slug}`}
               className="flex items-start gap-4 py-4 hover:bg-foreground/[0.02] transition-colors -mx-2 px-2 rounded"
             >
               <div className="w-[100px] h-[64px] shrink-0 rounded overflow-hidden bg-foreground/5">

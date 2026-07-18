@@ -38,7 +38,7 @@ export default function Home() {
             Siste publisering
           </h2>
           <Link
-            href={`/blog/${featured.slug}`}
+            href={`/artikler/${featured.slug}`}
             className="mt-4 block rounded-lg border border-foreground/5 hover:border-foreground/15 transition-colors overflow-hidden"
           >
             {featured.heroImage && (
@@ -73,7 +73,7 @@ export default function Home() {
               Emner
             </h2>
             <Link
-              href="/topics"
+              href="/emner"
               className="text-xs text-foreground/40 hover:text-foreground transition-colors"
             >
               Alle emner &rarr;
@@ -83,7 +83,7 @@ export default function Home() {
             {topics.slice(0, 6).map((topic) => (
               <li key={topic.slug}>
                 <Link
-                  href={`/topics/${topic.slug}`}
+                  href={`/emner/${topic.slug}`}
                   className="block rounded-lg border border-foreground/5 px-4 py-3 hover:border-foreground/15 transition-colors"
                 >
                   <h3 className="text-sm font-medium">{topic.name}</h3>
@@ -104,7 +104,7 @@ export default function Home() {
               Flere artikler
             </h2>
             <Link
-              href="/blog"
+              href="/artikler"
               className="text-xs text-foreground/40 hover:text-foreground transition-colors"
             >
               Alle artikler &rarr;
@@ -132,7 +132,7 @@ export default function Home() {
                     </div>
                     <h3 className="text-sm font-medium leading-snug">
                       <Link
-                        href={`/blog/${article.slug}`}
+                        href={`/artikler/${article.slug}`}
                         className="hover:underline underline-offset-4"
                       >
                         {article.title}

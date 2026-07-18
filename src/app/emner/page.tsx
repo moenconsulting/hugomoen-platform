@@ -22,7 +22,7 @@ export default function TopicsPage() {
         {topics.map((topic) => (
           <li key={topic.slug}>
             <Link
-              href={`/topics/${topic.slug}`}
+              href={`/emner/${topic.slug}`}
               className="block rounded-lg border border-foreground/5 px-4 py-4 hover:border-foreground/15 transition-colors"
             >
               <h2 className="text-sm font-medium">{topic.name}</h2>

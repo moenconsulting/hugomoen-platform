@@ -29,11 +29,11 @@ export async function generateMetadata({
     title: article.title,
     description: article.description,
     alternates: {
-      canonical: `/blog/${slug}`,
+      canonical: `/artikler/${slug}`,
     },
     openGraph: {
       type: "article",
-      url: `/blog/${slug}`,
+      url: `/artikler/${slug}`,
       title: article.title,
       description: article.description,
       publishedTime: article.date,
@@ -138,7 +138,7 @@ export default async function ArticlePage({
             {related.map((r) => (
               <li key={r.slug}>
                 <Link
-                  href={`/blog/${r.slug}`}
+                  href={`/artikler/${r.slug}`}
                   className="block rounded-lg border border-foreground/5 px-4 py-3 hover:border-foreground/15 transition-colors"
                 >
                   <h3 className="text-sm font-medium leading-snug">
@@ -158,7 +158,7 @@ export default async function ArticlePage({
         <nav className="mt-12 flex items-start justify-between gap-8 border-t border-foreground/10 pt-8 text-sm">
           {previous ? (
             <Link
-              href={`/blog/${previous.slug}`}
+              href={`/artikler/${previous.slug}`}
               className="flex flex-col gap-1 hover:underline underline-offset-4"
             >
               <span className="text-foreground/40">&larr; Forrige</span>
@@ -169,7 +169,7 @@ export default async function ArticlePage({
           )}
           {next ? (
             <Link
-              href={`/blog/${next.slug}`}
+              href={`/artikler/${next.slug}`}
               className="flex flex-col items-end gap-1 text-right hover:underline underline-offset-4"
             >
               <span className="text-foreground/40">Neste &rarr;</span>
