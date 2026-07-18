@@ -1,254 +1,260 @@
 ---
-title: "De fleste organisasjoner har ikke et teknologiproblem. De har et beslutningsproblem."
-description: "Mange organisasjoner investerer i teknologi, prosesser og omorganiseringer, men utfordringene består. Kanskje problemet ikke handler om teknologi, men om hvordan beslutninger tas."
+title: "Most Organizations Don't Have a Technology Problem. They Have a Decision Problem."
+description: "Many organizations invest heavily in technology, processes and organizational change, yet continue to struggle with the same challenges. Perhaps the real issue is not technology, but decision-making."
 date: "2026-07-18"
+
 topics:
   - Decision Architecture
   - Enterprise Architecture
   - Organization Design
   - Autonomy & Governance
+
 tags:
   - decision-architecture
   - decision-making
   - leadership
   - governance
   - organizational-design
-framework: 
+
+framework:
   - decision-architecture-framework
+
+language: "en"
+translationKey: "decision-problem"
+
 featured: true
 draft: false
-heroImage: "/images/articles/decision-problem.png"
-language: "no"
-translationKey: "decision-problem"
+
+heroImage: "/images/articles/decision-problem.jpg"
 ---
 
-# De fleste organisasjoner har ikke et teknologiproblem. De har et beslutningsproblem.
+# Most Organizations Don't Have a Technology Problem. They Have a Decision Problem.
 
-Vi snakker mye om teknologi.
+We spend a lot of time talking about technology.
 
-Vi snakker om skyplattformer, kunstig intelligens, moderne arkitektur, produktorganisering og digitale transformasjoner.
+Cloud platforms, AI, modern architectures, product operating models and digital transformation dominate conversations across industries.
 
-Når organisasjoner møter utfordringer er det ofte her oppmerksomheten rettes.
+When organizations struggle, these are often the first areas that receive attention.
 
-Det etableres nye prosesser.
+New processes are introduced.
 
-Det gjennomføres omorganiseringer.
+Teams are reorganized.
 
-Det investeres i ny teknologi.
+Technology platforms are replaced.
 
-Det innføres nye styringsmodeller.
+Governance models are redesigned.
 
-Likevel opplever mange organisasjoner de samme problemene år etter år.
+Yet many organizations continue to experience the same challenges year after year.
 
-Beslutninger tar for lang tid.
+Decisions take too long.
 
-Ansvar er uklart.
+Ownership is unclear.
 
-Initiativer mister fart.
+Initiatives lose momentum.
 
-De samme diskusjonene gjentas.
+The same discussions happen repeatedly.
 
-Ledere trekkes inn i detaljer som burde vært håndtert nærmere problemet.
+Leaders become involved in details that should have been handled closer to the problem.
 
-Team blir avhengige av eskalering for å komme videre.
+Teams become dependent on escalation to move forward.
 
-Dette ser ved første øyekast ut som teknologi-, prosess- eller organisasjonsproblemer.
+At first glance, these appear to be technology, process or organizational problems.
 
-Min erfaring er at det ofte er symptomer på noe mer grunnleggende.
+In my experience, they are often symptoms of something more fundamental.
 
-Et beslutningsproblem.
+A decision problem.
 
-## Organisasjoner bygges gjennom beslutninger
+## Organizations Are Built Through Decisions
 
-Alle organisasjoner er et resultat av beslutningene som er tatt over tid.
+Every organization is the result of decisions made over time.
 
-Strategier er beslutninger.
+Strategies are decisions.
 
-Produkter er beslutninger.
+Products are decisions.
 
-Organisasjonsstrukturer er beslutninger.
+Organizational structures are decisions.
 
-Plattformer er beslutninger.
+Platforms are decisions.
 
-Teknologivalg er beslutninger.
+Technology choices are decisions.
 
-Resultatene vi ser i dag er i stor grad konsekvensen av beslutninger som ble tatt i går.
+The outcomes we experience today are largely shaped by decisions made yesterday.
 
-Likevel bruker vi overraskende lite tid på å diskutere hvordan organisasjoner faktisk tar beslutninger.
+Despite this, surprisingly little attention is paid to how organizations actually make decisions.
 
-Vi fokuserer ofte på resultatene av beslutningene, men sjeldnere på beslutningssystemet som produserer dem.
+We spend significant effort discussing the outcomes of decisions, but much less time examining the decision systems that produce them.
 
-## Problemet er sjelden mangel på kompetanse
+## The Problem Is Rarely Competence
 
-De fleste organisasjoner består av dyktige mennesker.
+Most organizations are filled with capable people.
 
-Mennesker med erfaring, kompetanse og gode intensjoner.
+People with experience, expertise and good intentions.
 
-Likevel oppstår det ofte uenighet, treghet og usikkerhet.
+Yet disagreement, uncertainty and slow progress remain common.
 
-Hvorfor?
+Why?
 
-Fordi mennesker sjelden opererer med samme kontekst.
+Because people rarely operate with the same context.
 
-Vi har ulike erfaringer.
+They bring different experiences.
 
-Ulike referanserammer.
+Different incentives.
 
-Ulike insentiver.
+Different priorities.
 
-Ulike bekymringer.
+Different risk assessments.
 
-Ulike oppfatninger av risiko.
+Different assumptions.
 
-Det som fremstår som en uenighet om løsning, er ofte en uenighet om problemforståelse.
+What often appears to be disagreement about a solution is actually disagreement about the problem itself.
 
-Når mennesker diskuterer løsninger før de har etablert en felles forståelse av problemet, blir diskusjonen fort vanskelig.
+When people begin discussing solutions before establishing a shared understanding of the problem, meaningful progress becomes difficult.
 
-Ikke fordi noen nødvendigvis tar feil.
+Not because anyone is necessarily wrong.
 
-Men fordi de svarer på forskjellige spørsmål.
+But because they are answering different questions.
 
-## Sterke meninger er ikke det samme som gode beslutninger
+## Strong Opinions Are Not the Same as Good Decisions
 
-De fleste organisasjoner har personer med sterke meninger.
+Most organizations have strong personalities.
 
-Noen har lang erfaring.
+People with deep experience.
 
-Noen har høy formell autoritet.
+People with formal authority.
 
-Noen har opparbeidet seg stor innflytelse.
+People with significant influence.
 
-Dette er ikke nødvendigvis negativt.
+None of these are inherently negative.
 
-Erfaring er verdifullt.
+Experience matters.
 
-Autoritet kan være nødvendig.
+Authority matters.
 
-Problemet oppstår når kvaliteten på beslutningen i større grad påvirkes av hvem som argumenterer enn av argumentene som fremføres.
+Influence matters.
 
-Da risikerer organisasjonen å optimalisere for innflytelse i stedet for innsikt.
+Problems emerge when the quality of a decision becomes more dependent on who presents the argument than on the quality of the argument itself.
 
-Gode beslutninger krever at alternativer, antakelser og konsekvenser kan diskuteres åpent.
+Organizations then risk optimizing for influence rather than insight.
 
-Ikke for å vinne en debatt.
+Good decisions require alternatives, assumptions and consequences to be examined openly.
 
-Men for å øke sannsynligheten for å ta et godt valg.
+Not to win debates.
 
-## Beslutninger må tåle tidens tann
+But to improve the quality of the decision.
 
-Et problem jeg ofte møter er at ingen lenger husker hvorfor en beslutning ble tatt.
+## Decisions Should Survive Time
 
-Noen måneder eller år senere oppstår spørsmål som:
+One challenge I encounter repeatedly is that organizations often forget why decisions were made.
 
-- Hvorfor valgte vi denne løsningen?
-- Hvilke alternativer vurderte vi?
-- Hvilke antakelser la vi til grunn?
-- Hvilke avveininger ble gjort?
+Months or years later, people ask:
 
-Ofte finnes det ingen gode svar.
+- Why did we choose this approach?
+- What alternatives were considered?
+- Which assumptions did we make?
+- What trade-offs were accepted?
 
-Konteksten er glemt.
+Too often, there are no good answers.
 
-Personene har gått videre.
+The context has been lost.
 
-Dokumentasjonen mangler.
+The people involved have moved on.
 
-Da mister organisasjonen muligheten til å lære.
+The rationale is no longer available.
 
-Det blir også vanskelig å avgjøre om beslutningen fortsatt er riktig gitt dagens situasjon.
+Without this information, organizations lose their ability to learn.
 
-En god beslutning handler ikke bare om å være riktig der og da.
+It also becomes difficult to determine whether a decision is still valid under current conditions.
 
-Den bør også være forståelig i ettertid.
+Good decisions should not only make sense when they are made.
 
-## Kanskje vi optimaliserer for feil ting
+They should remain understandable long after the original context has changed.
 
-Mange organisasjoner forsøker å ta perfekte beslutninger.
+## Perhaps We Are Optimizing for the Wrong Thing
 
-Det høres fornuftig ut.
+Many organizations strive to make perfect decisions.
 
-Men jeg tror det er feil mål.
+That sounds reasonable.
 
-Virkeligheten er usikker.
+I believe it is the wrong objective.
 
-Informasjonen er ufullstendig.
+Reality is uncertain.
 
-Antakelser vil vise seg å være feil.
+Information is incomplete.
 
-Forutsetninger vil endre seg.
+Assumptions will prove incorrect.
 
-Ingen metode kan garantere riktige beslutninger.
+Circumstances will change.
 
-Målet bør derfor ikke være å eliminere feil.
+No framework, methodology or process can guarantee the right decision every time.
 
-Målet bør være å redusere konsekvensene av feil og øke evnen til å lære.
+The goal should therefore not be to eliminate mistakes.
 
-Organisasjoner som lærer raskt kan overleve dårlige beslutninger.
+The goal should be to reduce the cost of mistakes and improve the organization's ability to learn.
 
-Organisasjoner som lærer sakte kan mislykkes selv etter gode beslutninger.
+Organizations that learn quickly can survive poor decisions.
 
-Evnen til læring er ofte viktigere enn evnen til å forutsi fremtiden.
+Organizations that learn slowly can fail despite making good decisions.
 
-## Beslutninger er også kultur
+The ability to learn is often more valuable than the ability to predict.
 
-Verktøy hjelper.
+## Decision-Making Is Also Cultural
 
-Metoder hjelper.
+Tools help.
 
-Rammeverk hjelper.
+Methods help.
 
-Men de kan ikke kompensere for en kultur som straffer spørsmål, utfordringer og alternative perspektiver.
+Frameworks help.
 
-En organisasjon som ønsker bedre beslutninger må også bygge en kultur som gjør det trygt å:
+But none of them can compensate for a culture that discourages questions, challenges and alternative perspectives.
 
-- utfordre antakelser
-- stille spørsmål
-- diskutere alternativer
-- erkjenne usikkerhet
-- revurdere tidligere beslutninger
+Organizations that want better decisions must also foster environments where people feel safe to:
 
-Uten dette blir beslutningsprosessen lett en formalitet.
+- Challenge assumptions
+- Ask difficult questions
+- Explore alternatives
+- Acknowledge uncertainty
+- Revisit previous decisions
 
-## Mot en beslutningsarkitektur
+Without this, decision-making risks becoming little more than a procedural exercise.
 
-De siste årene har jeg blitt stadig mer opptatt av det jeg kaller beslutningsarkitektur.
+## Towards Decision Architecture
 
-Ikke som en styringsmodell.
+Over the last few years, I have become increasingly interested in what I call Decision Architecture.
 
-Ikke som en prosess.
+Not as a governance model.
 
-Og ikke som enda et lag med byråkrati.
+Not as a process.
 
-Men som utformingen av en organisasjons evne til å ta, utfordre, dokumentere og forbedre beslutninger over tid.
+And not as another layer of bureaucracy.
 
-Utgangspunktet er enkelt:
+Instead, I see it as the design of an organization's ability to make, challenge, document and improve decisions over time.
 
-Organisasjoner lykkes ikke fordi de alltid tar riktige beslutninger.
+The idea is simple:
 
-De lykkes fordi de etablerer systemer som gjør dem i stand til å lære, tilpasse seg og forbedre beslutningene sine etter hvert som de lærer mer.
+Organizations do not succeed because they always make the right decisions.
 
-Det er der beslutningsarkitektur begynner.
+They succeed because they create systems that help them learn, adapt and continuously improve their decisions.
 
-## Avslutning
+That is where Decision Architecture begins.
 
-Vi stiller ofte spørsmålet:
+## Final Thought
 
-> Hvordan sikrer vi at vi tar riktig beslutning?
+We often ask:
 
-Kanskje et bedre spørsmål er:
+> How do we make the right decision?
 
-> Hvordan bygger vi organisasjoner som lærer raskere enn konsekvensene av feil beslutninger utvikler seg?
+Perhaps a better question is:
 
-For i en verden preget av usikkerhet er det sjelden de som alltid har rett som lykkes best.
+> How do we build organizations that learn faster than the consequences of their mistakes develop?
 
-Det er de som lærer raskest.
+Because in an uncertain world, the organizations that learn fastest often outperform those that focus solely on being right.
 
 ---
 
-## Videre arbeid
+## Further Reading
 
-Denne artikkelen er en del av et pågående arbeid med å utvikle **Decision Architecture Framework**.
+This article is part of the ongoing development of the **Decision Architecture Framework**.
 
-Frameworket utforsker hvordan organisasjoner kan forbedre sin evne til å ta, utfordre, dokumentere og lære av beslutninger over tid.
+The framework explores how organizations can improve their ability to make, challenge, document and learn from decisions over time.
 
-Flere artikler om temaet vil publiseres etter hvert som arbeidet utvikler seg.
+Additional articles will be published as the framework evolves.
