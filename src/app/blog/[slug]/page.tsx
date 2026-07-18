@@ -25,11 +25,15 @@ export async function generateMetadata({
     return {};
   }
 
-  const metadata: Metadata = {
+  return {
     title: article.title,
     description: article.description,
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
     openGraph: {
       type: "article",
+      url: `/blog/${slug}`,
       title: article.title,
       description: article.description,
       publishedTime: article.date,
@@ -38,9 +42,15 @@ export async function generateMetadata({
         images: [{ url: article.heroImage, width: 1200, height: 630 }],
       }),
     },
+    twitter: {
+      card: article.heroImage ? "summary_large_image" : "summary",
+      title: article.title,
+      description: article.description,
+      ...(article.heroImage && {
+        images: [article.heroImage],
+      }),
+    },
   };
-
-  return metadata;
 }
 
 export default async function ArticlePage({
