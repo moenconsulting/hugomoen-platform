@@ -25,7 +25,7 @@ translationKey: "decision-problem"
 featured: true
 draft: false
 
-heroImage: "/images/articles/decision-problem.jpg"
+heroImage: "/images/articles/decision-problem.png"
 ---
 
 # Most Organizations Don't Have a Technology Problem. They Have a Decision Problem.
