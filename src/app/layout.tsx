@@ -49,6 +49,14 @@ export default function RootLayout({
               </li>
               <li>
                 <Link
+                  href="/frameworks"
+                  className="hover:underline underline-offset-4"
+                >
+                  Rammeverk
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/emner"
                   className="hover:underline underline-offset-4"
                 >

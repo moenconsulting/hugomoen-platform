@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { getAllArticles } from "@/lib/articles";
+import { getListingArticles } from "@/lib/articles";
 
 export const metadata: Metadata = {
   title: "Artikler",
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function ArticlesPage() {
-  const articles = getAllArticles();
+  const articles = getListingArticles();
 
   if (articles.length === 0) {
     return (

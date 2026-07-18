@@ -3,6 +3,13 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
+import {
+  deduplicateByTranslation,
+  findTranslations as findTranslationsGeneric,
+  getTranslationGroup as getTranslationGroupGeneric,
+  getTranslationLinks,
+  type TranslationLink,
+} from "./translations";
 
 const articlesDirectory = path.join(process.cwd(), "content", "articles");
 
@@ -13,8 +20,11 @@ export interface Article {
   description: string;
   heroImage?: string;
   readingTime: number;
-  draft?: boolean;
+  draft: boolean;
   tags: string[];
+  frameworks: string[];
+  language: string;
+  translationKey?: string;
 }
 
 export interface ArticleWithContent extends Article {
@@ -33,41 +43,42 @@ function estimateReadingTime(text: string): number {
   return Math.max(1, Math.round(words / WORDS_PER_MINUTE));
 }
 
+function parseArticle(fileName: string): Article {
+  const slug = fileName.replace(/\.md$/, "");
+  const fullPath = path.join(articlesDirectory, fileName);
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const { data, content } = matter(fileContents);
+
+  return {
+    slug,
+    title: data.title,
+    date: data.date ?? data.publishedDate ?? "",
+    description: data.description ?? "",
+    heroImage: data.heroImage,
+    readingTime: estimateReadingTime(content),
+    draft: data.draft ?? false,
+    tags: Array.isArray(data.tags) ? data.tags : [],
+    frameworks: Array.isArray(data.framework) ? data.framework : [],
+    language: data.language ?? "no",
+    translationKey: data.translationKey,
+  };
+}
+
+function isDraft(article: Article): boolean {
+  return article.draft && process.env.NODE_ENV === "production";
+}
+
 export function getAllArticles(): Article[] {
   if (!fs.existsSync(articlesDirectory)) {
     return [];
   }
 
-  const fileNames = fs.readdirSync(articlesDirectory);
-
-  const articles = fileNames
+  return fs
+    .readdirSync(articlesDirectory)
     .filter((name) => name.endsWith(".md"))
-    .map((fileName) => {
-      const slug = fileName.replace(/\.md$/, "");
-      const fullPath = path.join(articlesDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, "utf8");
-      const { data, content } = matter(fileContents);
-
-      return {
-        slug,
-        title: data.title,
-        date: data.date ?? data.publishedDate,
-        description: data.description,
-        heroImage: data.heroImage,
-        readingTime: estimateReadingTime(content),
-        draft: data.draft ?? false,
-        tags: Array.isArray(data.tags) ? data.tags : [],
-      };
-    })
-    .filter((article) => {
-      if (process.env.NODE_ENV === "production") {
-        return !article.draft;
-      }
-      return true;
-    })
+    .map(parseArticle)
+    .filter((a) => !isDraft(a))
     .sort((a, b) => (a.date > b.date ? -1 : 1));
-
-  return articles;
 }
 
 export async function getArticleBySlug(
@@ -85,17 +96,8 @@ export async function getArticleBySlug(
   const processed = await remark().use(html).process(markdownContent);
   const content = processed.toString();
 
-  return {
-    slug,
-    title: data.title,
-    date: data.date ?? data.publishedDate,
-    description: data.description,
-    heroImage: data.heroImage,
-    readingTime: estimateReadingTime(markdownContent),
-    draft: data.draft ?? false,
-    tags: Array.isArray(data.tags) ? data.tags : [],
-    content,
-  };
+  const article = parseArticle(`${slug}.md`);
+  return { ...article, content };
 }
 
 export function getArticleNavigation(slug: string): ArticleNavigation {
@@ -124,4 +126,28 @@ export function getAllSlugs(): string[] {
     .readdirSync(articlesDirectory)
     .filter((name) => name.endsWith(".md"))
     .map((name) => name.replace(/\.md$/, ""));
+}
+
+export function getListingArticles(): Article[] {
+  return deduplicateByTranslation(getAllArticles());
+}
+
+export function getArticlesByFramework(frameworkSlug: string): Article[] {
+  return deduplicateByTranslation(
+    getAllArticles().filter((a) => a.frameworks.includes(frameworkSlug))
+  );
+}
+
+export function getTranslationGroup(article: Article): Article[] {
+  return getTranslationGroupGeneric(article, getAllArticles());
+}
+
+export function findTranslations(article: Article): Article[] {
+  return findTranslationsGeneric(article, getAllArticles());
+}
+
+export function getArticleTranslationLinks(
+  article: Article
+): TranslationLink[] {
+  return getTranslationLinks(article, getAllArticles(), (slug) => `/artikler/${slug}`);
 }

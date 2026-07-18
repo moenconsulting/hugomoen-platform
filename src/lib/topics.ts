@@ -1,4 +1,4 @@
-import { getAllArticles, type Article } from "./articles";
+import { getAllArticles, getListingArticles, type Article } from "./articles";
 
 export interface Topic {
   slug: string;
@@ -65,7 +65,7 @@ function formatTagName(tag: string): string {
 }
 
 export function getAllTopics(): Topic[] {
-  const articles = getAllArticles();
+  const articles = getListingArticles();
   const tagCounts = new Map<string, number>();
 
   for (const article of articles) {
@@ -92,7 +92,7 @@ export function getTopicBySlug(slug: string): Topic | null {
 }
 
 export function getArticlesByTag(tag: string): Article[] {
-  return getAllArticles().filter((a) => a.tags.includes(tag));
+  return getListingArticles().filter((a) => a.tags.includes(tag));
 }
 
 export function getAllTopicSlugs(): string[] {
@@ -100,7 +100,7 @@ export function getAllTopicSlugs(): string[] {
 }
 
 export function getRelatedArticles(slug: string, limit = 3): Article[] {
-  const articles = getAllArticles();
+  const articles = getListingArticles();
   const current = articles.find((a) => a.slug === slug);
   if (!current || current.tags.length === 0) return [];
 

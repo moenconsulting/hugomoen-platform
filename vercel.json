@@ -3,6 +3,8 @@
     { "source": "/blog", "destination": "/artikler", "permanent": true },
     { "source": "/blog/:slug", "destination": "/artikler/:slug", "permanent": true },
     { "source": "/topics", "destination": "/emner", "permanent": true },
-    { "source": "/topics/:slug", "destination": "/emner/:slug", "permanent": true }
+    { "source": "/topics/:slug", "destination": "/emner/:slug", "permanent": true },
+    { "source": "/rammeverk", "destination": "/frameworks", "permanent": true },
+    { "source": "/rammeverk/:slug", "destination": "/frameworks/:slug", "permanent": true }
   ]
 }

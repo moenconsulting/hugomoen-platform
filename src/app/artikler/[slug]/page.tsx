@@ -6,7 +6,10 @@ import {
   getAllSlugs,
   getArticleBySlug,
   getArticleNavigation,
+  getArticleTranslationLinks,
+  findTranslations,
 } from "@/lib/articles";
+import { getFrameworkBySlug } from "@/lib/frameworks";
 import { getRelatedArticles } from "@/lib/topics";
 
 export async function generateStaticParams() {
@@ -25,11 +28,18 @@ export async function generateMetadata({
     return {};
   }
 
+  const translations = findTranslations(article);
+  const languages: Record<string, string> = {};
+  for (const t of translations) {
+    languages[t.language] = `/artikler/${t.slug}`;
+  }
+
   return {
     title: article.title,
     description: article.description,
     alternates: {
       canonical: `/artikler/${slug}`,
+      ...(Object.keys(languages).length > 0 && { languages }),
     },
     openGraph: {
       type: "article",
@@ -68,16 +78,62 @@ export default async function ArticlePage({
   const { previous, next } = getArticleNavigation(slug);
   const related = getRelatedArticles(slug);
 
+  const frameworks = await Promise.all(
+    article.frameworks.map((fwSlug) => getFrameworkBySlug(fwSlug))
+  );
+  const linkedFrameworks = frameworks.filter(Boolean);
+  const translationLinks = getArticleTranslationLinks(article);
+
   return (
     <article>
       <header className="mb-8">
-        <div className="text-sm text-foreground/50">
-          <time dateTime={article.date}>{article.date}</time>
-          <span> · {article.readingTime} min lesetid</span>
+        <div className="flex items-center justify-between">
+          <div className="text-sm text-foreground/50">
+            <time dateTime={article.date}>{article.date}</time>
+            <span> · {article.readingTime} min lesetid</span>
+          </div>
+          {translationLinks.length > 0 && (
+            <nav aria-label="Språkvalg" className="flex items-center gap-1 text-sm">
+              {translationLinks.map((link, i) => (
+                <span key={link.slug}>
+                  {i > 0 && (
+                    <span className="text-foreground/20 mx-1" aria-hidden="true">|</span>
+                  )}
+                  {link.active ? (
+                    <span className="font-medium">{link.label}</span>
+                  ) : (
+                    <Link
+                      href={`/artikler/${link.slug}`}
+                      className="text-foreground/50 hover:text-foreground transition-colors"
+                      hrefLang={link.language}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
+                </span>
+              ))}
+            </nav>
+          )}
         </div>
         <h1 className="mt-2 text-3xl font-semibold tracking-tight">
           {article.title}
         </h1>
+        {linkedFrameworks.length > 0 && (
+          <p className="mt-2 text-sm text-foreground/50">
+            Del av:{" "}
+            {linkedFrameworks.map((fw, i) => (
+              <span key={fw!.slug}>
+                {i > 0 && ", "}
+                <Link
+                  href={`/frameworks/${fw!.slug}`}
+                  className="underline underline-offset-4 hover:text-foreground transition-colors"
+                >
+                  {fw!.title}
+                </Link>
+              </span>
+            ))}
+          </p>
+        )}
       </header>
       {article.heroImage && (
         <Image

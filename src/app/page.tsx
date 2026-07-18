@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getAllArticles } from "@/lib/articles";
+import { getListingArticles } from "@/lib/articles";
 import { getAllTopics } from "@/lib/topics";
 
 export default function Home() {
-  const allArticles = getAllArticles();
+  const allArticles = getListingArticles();
   const featured = allArticles[0];
   const recent = allArticles.slice(1, 6);
   const topics = getAllTopics();
