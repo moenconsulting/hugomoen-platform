@@ -118,23 +118,26 @@ export default async function ArticlePage({
         <h1 className="mt-2 text-3xl font-semibold tracking-tight">
           {article.title}
         </h1>
-        {linkedFrameworks.length > 0 && (
-          <p className="mt-2 text-sm text-foreground/50">
-            Del av:{" "}
-            {linkedFrameworks.map((fw, i) => (
-              <span key={fw!.slug}>
-                {i > 0 && ", "}
+      </header>
+      {linkedFrameworks.length > 0 && (
+        <div className="mb-8 rounded-lg border border-foreground/10 bg-foreground/[0.02] px-5 py-4">
+          <p className="text-xs font-medium uppercase tracking-wide text-foreground/40">
+            Del av rammeverk
+          </p>
+          <ul className="mt-2 space-y-1">
+            {linkedFrameworks.map((fw) => (
+              <li key={fw!.slug}>
                 <Link
                   href={`/frameworks/${fw!.slug}`}
-                  className="underline underline-offset-4 hover:text-foreground transition-colors"
+                  className="text-sm font-medium hover:underline underline-offset-4 transition-colors"
                 >
                   {fw!.title}
                 </Link>
-              </span>
+              </li>
             ))}
-          </p>
-        )}
-      </header>
+          </ul>
+        </div>
+      )}
       {article.heroImage && (
         <Image
           src={article.heroImage}

@@ -13,6 +13,8 @@ tags:
   - leadership
   - governance
   - organizational-design
+framework: 
+  - decision-architecture-framework
 featured: true
 draft: true
 heroImage: "/images/articles/decision-problem.png"
