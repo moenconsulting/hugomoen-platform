@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { Geist } from "next/font/google";
 import Link from "next/link";
 import { siteUrl } from "@/lib/config";
+import MobileNav from "@/components/mobile-nav";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -38,7 +39,7 @@ export default function RootLayout({
             <Link href="/" className="text-lg font-semibold">
               Hugo Moen
             </Link>
-            <ul className="flex gap-6 text-sm">
+            <ul className="hidden sm:flex gap-6 text-sm">
               <li>
                 <Link
                   href="/artikler"
@@ -72,6 +73,7 @@ export default function RootLayout({
                 </Link>
               </li>
             </ul>
+            <MobileNav />
           </nav>
         </header>
 
