@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Geist } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
@@ -60,6 +61,7 @@ export default function RootLayout({
             &copy; {new Date().getFullYear()} Hugo Moen
           </div>
         </footer>
+        <Analytics />
       </body>
     </html>
   );
