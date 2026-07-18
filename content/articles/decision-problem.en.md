@@ -8,7 +8,7 @@ translationKey: "decision-problem"
 framework:
   - decision-architecture-framework
 
-draft: true
+draft: false
 ---
 # Coming Soon
 

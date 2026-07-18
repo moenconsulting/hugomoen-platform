@@ -3,7 +3,7 @@ title: "Decision Architecture Framework"
 slug: "decision-architecture-framework"
 description: "A framework for improving organizational decision-making under uncertainty."
 status: "Draft"
-
+draft: false
 topics:
   - Decision Architecture
   - Autonomy & Governance

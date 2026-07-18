@@ -16,7 +16,7 @@ tags:
 framework: 
   - decision-architecture-framework
 featured: true
-draft: true
+draft: false
 heroImage: "/images/articles/decision-problem.png"
 language: "no"
 translationKey: "decision-problem"
