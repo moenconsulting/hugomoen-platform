@@ -19,8 +19,7 @@ Each post has YAML frontmatter with the following fields.
 | description | string  | yes      | Short summary. Used in blog list and meta tags. |
 | heroImage   | string  | no       | Path to hero image relative to public/. Stored in public/images/articles/. |
 | draft       | boolean | no       | Defaults to false. See draft strategy below. |
-
-Tags are excluded from the MVP. They are defined in the Phase 2 backlog and should not be added to frontmatter until that work begins.
+| tags        | string[]| no       | List of topic slugs. Used to generate topic pages. |
 
 ### Example
 
@@ -29,6 +28,9 @@ Tags are excluded from the MVP. They are defined in the Phase 2 backlog and shou
 title: "Hvordan jeg bygde en publiseringsplattform"
 date: "2026-07-17"
 description: "En refleksjon over valg, prinsipper og prosess."
+tags:
+  - plattformarkitektur
+  - beslutningsarkitektur
 ---
 ```
 

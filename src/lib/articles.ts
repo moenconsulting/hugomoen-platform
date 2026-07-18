@@ -14,6 +14,7 @@ export interface Article {
   heroImage?: string;
   readingTime: number;
   draft?: boolean;
+  tags: string[];
 }
 
 export interface ArticleWithContent extends Article {
@@ -50,11 +51,12 @@ export function getAllArticles(): Article[] {
       return {
         slug,
         title: data.title,
-        date: data.date,
+        date: data.date ?? data.publishedDate,
         description: data.description,
         heroImage: data.heroImage,
         readingTime: estimateReadingTime(content),
         draft: data.draft ?? false,
+        tags: Array.isArray(data.tags) ? data.tags : [],
       };
     })
     .filter((article) => {
@@ -86,11 +88,12 @@ export async function getArticleBySlug(
   return {
     slug,
     title: data.title,
-    date: data.date,
+    date: data.date ?? data.publishedDate,
     description: data.description,
     heroImage: data.heroImage,
     readingTime: estimateReadingTime(markdownContent),
     draft: data.draft ?? false,
+    tags: Array.isArray(data.tags) ? data.tags : [],
     content,
   };
 }

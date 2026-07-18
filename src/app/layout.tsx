@@ -42,6 +42,14 @@ export default function RootLayout({
               </li>
               <li>
                 <Link
+                  href="/topics"
+                  className="hover:underline underline-offset-4"
+                >
+                  Emner
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/om"
                   className="hover:underline underline-offset-4"
                 >
