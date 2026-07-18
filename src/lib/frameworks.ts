@@ -13,6 +13,7 @@ export interface Framework {
   title: string;
   description: string;
   status: FrameworkStatus;
+  draft: boolean;
   topics: string[];
   heroImage?: string;
   readingTime: number;
@@ -47,6 +48,7 @@ function parseFramework(fileName: string): Framework {
     title: data.title,
     description: data.description ?? "",
     status: normalizeStatus(data.status),
+    draft: data.draft ?? false,
     topics: Array.isArray(data.topics) ? data.topics : [],
     heroImage: data.heroImage,
     readingTime: estimateReadingTime(content),
@@ -55,7 +57,7 @@ function parseFramework(fileName: string): Framework {
 
 function isVisible(fw: Framework): boolean {
   if (process.env.NODE_ENV === "production") {
-    return fw.status !== "draft";
+    return !fw.draft;
   }
   return true;
 }
