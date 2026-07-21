@@ -11,6 +11,7 @@ import { getArticlesByFramework } from "@/lib/articles";
 import { siteUrl } from "@/lib/config";
 import { formatDate } from "@/lib/dates";
 import { extractHeadings, addHeadingIds } from "@/lib/headings";
+import { isScheduled } from "@/lib/visibility";
 
 export function generateStaticParams() {
   return getAllFrameworkSlugs().map((slug) => ({ slug }));
@@ -96,6 +97,11 @@ export default async function FrameworkPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {isScheduled(framework) && (
+        <div className="mb-6 rounded-md border border-amber-500/20 bg-amber-500/5 px-4 py-3 text-sm text-amber-700 dark:text-amber-400">
+          Planlagt publisering: {formatDate(framework.publishDate!)}
+        </div>
+      )}
       <header className="mb-10 border-b border-foreground/10 pb-8">
         <Link
           href="/frameworks"

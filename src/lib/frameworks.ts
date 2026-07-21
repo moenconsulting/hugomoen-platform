@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
+import { isVisible } from "./visibility";
 
 const frameworksDirectory = path.join(process.cwd(), "content", "frameworks");
 
@@ -18,6 +19,7 @@ export interface Framework {
   heroImage?: string;
   readingTime: number;
   lastUpdated?: string;
+  publishDate?: string;
 }
 
 export interface FrameworkWithContent extends Framework {
@@ -54,14 +56,8 @@ function parseFramework(fileName: string): Framework {
     heroImage: data.heroImage,
     readingTime: estimateReadingTime(content),
     lastUpdated: data.lastUpdated,
+    publishDate: data.publishDate,
   };
-}
-
-function isVisible(fw: Framework): boolean {
-  if (process.env.NODE_ENV === "production") {
-    return !fw.draft;
-  }
-  return true;
 }
 
 export function getAllFrameworks(): Framework[] {
@@ -89,6 +85,7 @@ export async function getFrameworkBySlug(
   for (const fileName of files) {
     const fw = parseFramework(fileName);
     if (fw.slug !== slug) continue;
+    if (!isVisible(fw)) return null;
 
     const fullPath = path.join(frameworksDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");

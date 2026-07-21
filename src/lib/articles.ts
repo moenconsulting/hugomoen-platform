@@ -10,6 +10,7 @@ import {
   getTranslationLinks,
   type TranslationLink,
 } from "./translations";
+import { isVisible } from "./visibility";
 
 const articlesDirectory = path.join(process.cwd(), "content", "articles");
 
@@ -21,6 +22,7 @@ export interface Article {
   heroImage?: string;
   readingTime: number;
   draft: boolean;
+  publishDate?: string;
   tags: string[];
   frameworks: string[];
   language: string;
@@ -61,11 +63,8 @@ function parseArticle(fileName: string): Article {
     frameworks: Array.isArray(data.framework) ? data.framework : [],
     language: data.language ?? "no",
     translationKey: data.translationKey,
+    publishDate: data.publishDate,
   };
-}
-
-function isDraft(article: Article): boolean {
-  return article.draft && process.env.NODE_ENV === "production";
 }
 
 export function getAllArticles(): Article[] {
@@ -77,7 +76,7 @@ export function getAllArticles(): Article[] {
     .readdirSync(articlesDirectory)
     .filter((name) => name.endsWith(".md"))
     .map(parseArticle)
-    .filter((a) => !isDraft(a))
+    .filter(isVisible)
     .sort((a, b) => (a.date > b.date ? -1 : 1));
 }
 
@@ -90,13 +89,17 @@ export async function getArticleBySlug(
     return null;
   }
 
+  const article = parseArticle(`${slug}.md`);
+  if (!isVisible(article)) {
+    return null;
+  }
+
   const fileContents = fs.readFileSync(fullPath, "utf8");
-  const { data, content: markdownContent } = matter(fileContents);
+  const { content: markdownContent } = matter(fileContents);
 
   const processed = await remark().use(html).process(markdownContent);
   const content = processed.toString();
 
-  const article = parseArticle(`${slug}.md`);
   return { ...article, content };
 }
 

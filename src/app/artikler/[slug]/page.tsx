@@ -12,6 +12,8 @@ import {
 import { getFrameworkBySlug } from "@/lib/frameworks";
 import { getRelatedArticles } from "@/lib/topics";
 import { siteUrl } from "@/lib/config";
+import { isScheduled } from "@/lib/visibility";
+import { formatDate } from "@/lib/dates";
 import ShareButtons from "@/components/share-buttons";
 
 export async function generateStaticParams() {
@@ -115,6 +117,11 @@ export default async function ArticlePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {isScheduled(article) && (
+        <div className="mb-6 rounded-md border border-amber-500/20 bg-amber-500/5 px-4 py-3 text-sm text-amber-700 dark:text-amber-400">
+          Planlagt publisering: {formatDate(article.publishDate!)}
+        </div>
+      )}
       <header className="mb-8">
         <div className="flex items-center justify-between">
           <div className="text-sm text-foreground/50">
