@@ -19,7 +19,7 @@ tags:
 language: "en"
 
 featured: true
-draft: true
+draft: false
 
 heroImage: "/images/articles/introducing-decision-architecture.png"
 
