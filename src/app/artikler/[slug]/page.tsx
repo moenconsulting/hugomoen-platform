@@ -12,6 +12,7 @@ import {
 import { getFrameworkBySlug } from "@/lib/frameworks";
 import { getRelatedArticles } from "@/lib/topics";
 import { siteUrl } from "@/lib/config";
+import ShareButtons from "@/components/share-buttons";
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -179,6 +180,10 @@ export default async function ArticlePage({
       <div
         className="prose prose-neutral max-w-none dark:prose-invert"
         dangerouslySetInnerHTML={{ __html: article.content }}
+      />
+      <ShareButtons
+        url={`${siteUrl}/artikler/${slug}`}
+        title={article.title}
       />
       <footer className="mt-12 border-t border-foreground/10 pt-8">
         <div className="flex gap-4">
