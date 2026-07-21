@@ -12,7 +12,7 @@ topics:
 
 ## What is Decision Architecture?
 
-Decision Architecture is the design of an organization's ability to make, challenge, document and improve decisions over time.
+Decision Architecture is the intentional design of an organization's ability to make, challenge, document and improve decisions over time.
 
 Most organizations invest significant effort in technology, processes, governance models and organizational structures.
 
@@ -24,138 +24,207 @@ Yet many continue to struggle with:
 - Repeated discussions
 - Poor organizational learning
 
-Decision Architecture explores the hypothesis that many of these challenges are fundamentally decision-making challenges.
+Decision Architecture explores the hypothesis that many of these challenges are fundamentally decision-making challenges rather than technology or process challenges.
 
-The framework focuses on improving how decisions are made, rather than simply improving the structures around them.
+The framework focuses on improving how decisions are made, understood and evolved over time.
 
 ---
 
 ## Why Decision Architecture?
 
-Organizations are ultimately shaped by the decisions they make.
+Organizations are the cumulative result of decisions made over time.
 
 Strategies are decisions.
 
+Roadmaps are decisions.
+
 Technology choices are decisions.
 
-Roadmaps are decisions.
+Products are decisions.
 
 Organizational structures are decisions.
 
-The outcomes we observe today are largely the result of decisions made in the past.
+Governance models are decisions.
 
-Despite this, surprisingly little attention is often given to the systems that produce those decisions.
+Every organization is shaped by thousands of decisions, both large and small.
 
-Many organizations invest heavily in:
+When organizations succeed or struggle, the explanation is often not technology or process alone.
 
-- Processes
-- Governance
-- Technology
-- Organizational design
+It is often found in the quality of the decisions that shaped them.
 
-while investing far less effort in understanding how decisions are actually formed, challenged and improved.
+Many organizational challenges can be traced back to:
 
-Decision Architecture aims to make those mechanisms explicit.
+- Lack of shared context
+- Hidden assumptions
+- Missing rationale
+- Unclear ownership
+- Slow learning cycles
+
+Decision Architecture exists to make these factors visible and improve the organization's ability to learn from them.
 
 ---
 
 ## Core Hypothesis
 
-Good organizations are not defined by perfect decisions.
+Most organizations do not primarily suffer from technology problems, process problems or organizational structure problems.
 
-They are defined by their ability to:
+They suffer from decision problems.
 
-- Establish shared context
-- Make informed decisions
-- Challenge assumptions
-- Learn quickly
-- Adapt continuously
+The quality of an organization is largely determined by:
 
-The objective is not certainty.
+- The quality of its decisions
+- How decisions are made
+- How decisions are challenged
+- How decisions are documented
+- How quickly the organization learns from consequences
 
-The objective is learning.
+Good organizations are not distinguished by making perfect decisions.
 
-Organizations that learn faster than the consequences of their mistakes develop are often better positioned for long-term success.
+They are distinguished by their ability to establish shared context, challenge assumptions, document rationale, learn quickly and continuously improve decisions as new information becomes available.
 
 ---
 
 ## Seven Principles
 
-The framework currently consists of seven principles.
-
 ### 1. Context Before Conclusion
 
-Shared understanding should be established before discussing solutions.
+Decisions should start with a shared understanding of the problem rather than a discussion of solutions.
+
+Many disagreements arise because organizations attempt to agree on solutions before they agree on context.
+
+Good decisions require a shared understanding of:
+
+- The problem
+- The objective
+- The constraints
+- The environment in which the decision is being made
+
+---
 
 ### 2. Make Alternatives Explicit
 
 A decision without visible alternatives is rarely a true decision.
 
+Alternatives should be made explicit together with:
+
+- Consequences
+- Risks
+- Costs
+- Assumptions
+
+The objective is not more options.
+
+The objective is conscious choice.
+
+---
+
 ### 3. Challenge Assumptions
 
-Important assumptions should be identified and tested before commitments are made.
+Assumptions should be identified, made visible and challenged.
+
+Good decisions emerge when organizations are willing to question their own understanding.
+
+Assumptions may be:
+
+- Technical
+- Organizational
+- Business-related
+- Regulatory
+- Cultural
+
+The more significant the decision, the more important it becomes to understand the assumptions that support it.
+
+---
 
 ### 4. Document Rationale
 
-Decisions should be documented together with context, reasoning and trade-offs.
+Decisions should be documented together with context, rationale, assumptions and trade-offs.
+
+The purpose is not documentation for its own sake.
+
+The purpose is to help future teams understand:
+
+- Why a decision was made
+- Which alternatives were considered
+- Which assumptions existed
+- Which consequences were accepted
+
+Organizations cannot learn effectively from decisions they no longer understand.
+
+---
 
 ### 5. Prefer Reversible Decisions
 
-When uncertainty is high, favor decisions that can be adjusted later.
+When uncertainty is high, organizations should favor decisions that can be adjusted later.
+
+Perfection is rarely possible.
+
+Adaptability is often more valuable.
+
+Organizations should deliberately design for:
+
+- Flexibility
+- Optionality
+- Incremental change
+- Course correction
+
+---
 
 ### 6. Learning Beats Certainty
 
-Organizations should optimize for learning rather than prediction.
+The goal is not to be right.
+
+The goal is to learn faster than consequences develop.
+
+All decisions are made under uncertainty.
+
+New information will emerge.
+
+Assumptions will prove incorrect.
+
+Reality will change.
+
+Organizations that learn quickly can survive poor decisions.
+
+Organizations that learn slowly can fail despite making good decisions.
+
+---
 
 ### 7. Culture Enables Decisions
 
-The surrounding culture ultimately determines the quality of organizational decision-making.
+Processes and tools can support decisions.
+
+Culture determines whether they work.
+
+Decision Architecture only functions when an organization accepts:
+
+- Questions
+- Alternative perspectives
+- Constructive disagreement
+- Learning
+- Course correction
+
+A culture that protects decisions from challenge will gradually reduce learning.
+
+A culture that encourages reflection strengthens decision quality over time.
 
 ---
 
 ## Observations & Examples
 
-The framework is continuously informed by observations from real organizations.
+The purpose of observations is not to document specific organizations, projects or individuals.
 
-The purpose of these examples is not to describe specific organizations, projects or individuals.
+The purpose is to identify recurring decision-making patterns that appear across different contexts.
 
-The purpose is to identify recurring patterns that appear across different contexts.
+Observations provide evidence that can support, challenge and refine the framework over time.
 
-### Example: Solving the Solution Before Understanding the Problem
+### Current Observations
 
-#### Situation
+#### Example: Solving the Solution Before Understanding the Problem
 
-A potential compliance requirement led to months of discussion about how a solution should be implemented.
+A recurring pattern where organizations begin discussing solutions before establishing a shared understanding of the underlying problem.
 
-Multiple stakeholders participated in recurring meetings.
-
-Most discussions focused on implementation details and system design.
-
-#### Observation
-
-Very little effort was initially spent validating the underlying assumptions.
-
-Questions such as:
-
-- What exactly is required?
-- What problem are we solving?
-- Who owns the responsibility?
-- What evidence is actually needed?
-- What does the regulation really say?
-
-were addressed surprisingly late in the process.
-
-As a result, the organization spent considerable time discussing solutions before fully understanding the problem.
-
-#### Outcome
-
-Once assumptions were documented and validated, the original solution hypothesis proved unnecessary.
-
-The organization avoided implementing functionality that had no documented requirement.
-
-A documented decision also prevented the same discussion from repeatedly resurfacing.
-
-#### Related Principles
+**Related Principles**
 
 - Context Before Conclusion
 - Challenge Assumptions
@@ -163,26 +232,76 @@ A documented decision also prevented the same discussion from repeatedly resurfa
 
 ---
 
+#### Example: Losing the Original Decision Context
+
+A recurring pattern where organizations can no longer explain why significant decisions were originally made.
+
+As context disappears:
+
+- Discussions repeat themselves
+- Learning slows down
+- Assumptions become invisible
+- Decisions become difficult to evaluate
+
+**Related Principles**
+
+- Document Rationale
+- Challenge Assumptions
+- Learning Beats Certainty
+- Prefer Reversible Decisions
+
+---
+
 ## Open Questions
 
 The framework is still evolving.
 
-Current questions include:
+Current areas of exploration include:
 
-- How should decision quality be assessed?
-- How should decision velocity be measured?
-- How can organizations balance autonomy and alignment?
-- What constitutes a healthy decision culture?
-- Which organizational patterns consistently improve decision quality?
-- How should decisions be revisited and reviewed over time?
+### Decision Quality
 
-These questions will continue to shape future versions of the framework.
+- What makes a decision good?
+- Can good decisions produce poor outcomes?
+- Can poor decisions produce good outcomes?
+- How should decision quality be assessed independently from outcome?
+
+### Organizational Learning
+
+- How can organizational learning be measured?
+- What enables learning at scale?
+- How much organizational memory is required?
+- What information must survive a decision?
+
+### Assumptions
+
+- Why are assumptions so difficult to identify?
+- How should assumptions be documented?
+- Which assumptions matter most?
+
+### Autonomy & Governance
+
+- Which decisions should be made locally?
+- When should decisions be escalated?
+- How should autonomy and alignment be balanced?
+
+### Reversibility
+
+- How should reversibility be assessed?
+- How should optionality influence decisions?
+- When is flexibility more valuable than optimization?
+
+### Evidence & Validation
+
+- How should Decision Architecture be validated?
+- What evidence strengthens a principle?
+- What evidence challenges a principle?
+- When should a principle be revised?
 
 ---
 
 ## Related Articles
 
-The following articles currently contribute to and expand the framework:
+The following articles currently support and expand the framework:
 
 - De fleste organisasjoner har ikke et teknologiproblem. De har et beslutningsproblem.
 - Kart, kompass og roadmap
@@ -191,7 +310,7 @@ The following articles currently contribute to and expand the framework:
 - Virksomhetsarkitektur uten sentral kontroll – er det mulig?
 - Når organisasjon og arkitektur må henge sammen
 
-Additional articles and examples will be added as the framework evolves.
+Additional articles, observations and examples will be added as the framework evolves.
 
 ---
 
@@ -199,16 +318,29 @@ Additional articles and examples will be added as the framework evolves.
 
 ### July 2026
 
-- Initial framework published
-- Core Hypothesis established
-- Seven Principles introduced
+#### Initial Framework
 
-### July 2026
+- Published initial framework
+- Defined Core Hypothesis
+- Introduced Seven Principles
+- Established Open Questions
 
-- Added Observations & Examples
-- Added first documented observation:
-  *Solving the Solution Before Understanding the Problem*
-- Expanded Open Questions
+#### First Observations
+
+Added:
+
+- Solving the Solution Before Understanding the Problem
+- Losing the Original Decision Context
+
+#### Framework Refinement
+
+Updated:
+
+- Core Hypothesis
+- Seven Principles
+- Open Questions
+
+The framework increasingly reflects documented observations rather than theoretical assumptions.
 
 ---
 
