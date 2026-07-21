@@ -17,6 +17,7 @@ export interface Framework {
   topics: string[];
   heroImage?: string;
   readingTime: number;
+  lastUpdated?: string;
 }
 
 export interface FrameworkWithContent extends Framework {
@@ -52,6 +53,7 @@ function parseFramework(fileName: string): Framework {
     topics: Array.isArray(data.topics) ? data.topics : [],
     heroImage: data.heroImage,
     readingTime: estimateReadingTime(content),
+    lastUpdated: data.lastUpdated,
   };
 }
 

@@ -9,6 +9,8 @@ import {
 } from "@/lib/frameworks";
 import { getArticlesByFramework } from "@/lib/articles";
 import { siteUrl } from "@/lib/config";
+import { formatDate } from "@/lib/dates";
+import { extractHeadings, addHeadingIds } from "@/lib/headings";
 
 export function generateStaticParams() {
   return getAllFrameworkSlugs().map((slug) => ({ slug }));
@@ -64,6 +66,8 @@ export default async function FrameworkPage({
     notFound();
   }
 
+  const headings = extractHeadings(framework.content);
+  const contentWithIds = addHeadingIds(framework.content, headings);
   const relatedArticles = getArticlesByFramework(slug);
 
   const jsonLd = {
@@ -78,35 +82,68 @@ export default async function FrameworkPage({
       jobTitle: "Lead Architect",
       url: `${siteUrl}/om`,
     },
+    ...(framework.lastUpdated && {
+      dateModified: framework.lastUpdated,
+    }),
     ...(framework.heroImage && {
       image: `${siteUrl}${framework.heroImage}`,
     }),
   };
 
   return (
-    <article>
+    <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <header className="mb-8">
+      <header className="mb-10 border-b border-foreground/10 pb-8">
         <Link
           href="/frameworks"
           className="text-sm text-foreground/40 hover:text-foreground transition-colors"
         >
           &larr; Alle rammeverk
         </Link>
-        <h1 className="mt-4 text-3xl font-semibold tracking-tight">
+        <div className="mt-4 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-foreground/30">
+          <span>Rammeverk</span>
+          {framework.status !== "published" && (
+            <>
+              <span aria-hidden="true">&middot;</span>
+              <span>{getStatusLabel(framework.status)}</span>
+            </>
+          )}
+        </div>
+        <h1 className="mt-1.5 text-3xl font-semibold tracking-tight">
           {framework.title}
         </h1>
         <p className="mt-2 text-foreground/60">{framework.description}</p>
-        <div className="mt-2 flex items-center gap-3 text-sm text-foreground/40">
-          <span className="rounded-full bg-foreground/5 px-2 py-0.5 text-xs text-foreground/50">
-            {getStatusLabel(framework.status)}
-          </span>
-          <span>{framework.readingTime} min lesetid</span>
-        </div>
+        {framework.lastUpdated && (
+          <p className="mt-3 text-sm text-foreground/40">
+            Sist oppdatert:{" "}
+            <time dateTime={framework.lastUpdated} className="text-foreground/60">
+              {formatDate(framework.lastUpdated)}
+            </time>
+          </p>
+        )}
       </header>
+      {headings.length >= 3 && (
+        <nav aria-label="Innholdsfortegnelse" className="mb-10 rounded-lg border border-foreground/10 bg-foreground/[0.02] px-5 py-4">
+          <p className="text-xs font-semibold uppercase tracking-widest text-foreground/30">
+            Innhold
+          </p>
+          <ul className="mt-3 space-y-1.5">
+            {headings.map((h) => (
+              <li key={h.id}>
+                <a
+                  href={`#${h.id}`}
+                  className="text-sm text-foreground/50 hover:text-foreground transition-colors"
+                >
+                  {h.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
       {framework.heroImage && (
         <Image
           src={framework.heroImage}
@@ -119,7 +156,7 @@ export default async function FrameworkPage({
       )}
       <div
         className="prose prose-neutral max-w-none dark:prose-invert"
-        dangerouslySetInnerHTML={{ __html: framework.content }}
+        dangerouslySetInnerHTML={{ __html: contentWithIds }}
       />
 
       {relatedArticles.length > 0 && (
@@ -146,6 +183,6 @@ export default async function FrameworkPage({
           </ul>
         </section>
       )}
-    </article>
+    </div>
   );
 }
