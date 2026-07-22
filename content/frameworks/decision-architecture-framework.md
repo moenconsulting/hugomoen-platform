@@ -257,6 +257,25 @@ As context disappears:
 
 ---
 
+#### Example: The Decision That Was Never Made
+
+A recurring pattern where assumptions, recommendations and informal agreements gradually acquire the authority of a decision, even though no clear decision was ever made.
+
+As the distinction between discussions and decisions disappears:
+
+- Decision ownership becomes unclear
+- Assumptions become difficult to challenge
+- Accountability weakens
+- Documentation gains authority without legitimacy
+
+**Related Principles**
+
+- Make Alternatives Explicit
+- Challenge Assumptions
+- Document Rationale
+
+---
+
 ## Open Questions
 
 The framework is still evolving.
