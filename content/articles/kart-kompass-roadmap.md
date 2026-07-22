@@ -18,6 +18,7 @@ tags:
   - leadership
 
 language: "no"
+translationKey: "map-compass-roadmap"
 
 featured: true
 draft: false

@@ -4,10 +4,21 @@ import { useCallback, useState } from "react";
 
 interface ShareButtonsProps {
   url: string;
-  title: string;
+  heading: string;
+  linkedInAria: string;
+  copyLabel: string;
+  copyAria: string;
+  copiedLabel: string;
 }
 
-export default function ShareButtons({ url, title }: ShareButtonsProps) {
+export default function ShareButtons({
+  url,
+  heading,
+  linkedInAria,
+  copyLabel,
+  copyAria,
+  copiedLabel,
+}: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = useCallback(async () => {
@@ -20,16 +31,14 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
 
   return (
     <section className="mt-12 border-t border-foreground/10 pt-8">
-      <h2 className="text-sm font-medium text-foreground/50">
-        Del artikkelen
-      </h2>
+      <h2 className="text-sm font-medium text-foreground/50">{heading}</h2>
       <div className="mt-3 flex items-center gap-3">
         <a
           href={linkedInUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-md border border-foreground/10 px-3.5 py-2 text-sm text-foreground/70 hover:border-foreground/20 hover:text-foreground transition-colors"
-          aria-label={`Del "${title}" på LinkedIn`}
+          aria-label={linkedInAria}
         >
           <svg
             viewBox="0 0 24 24"
@@ -45,7 +54,7 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
           type="button"
           onClick={handleCopy}
           className="inline-flex items-center gap-2 rounded-md border border-foreground/10 px-3.5 py-2 text-sm text-foreground/70 hover:border-foreground/20 hover:text-foreground transition-colors"
-          aria-label="Kopier lenke til artikkelen"
+          aria-label={copyAria}
         >
           {copied ? (
             <>
@@ -61,7 +70,7 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
               >
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              Lenke kopiert!
+              {copiedLabel}
             </>
           ) : (
             <>
@@ -78,7 +87,7 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
                 <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
               </svg>
-              Kopier lenke
+              {copyLabel}
             </>
           )}
         </button>

@@ -1,6 +1,6 @@
 ---
 title: "Introducing the Decision Architecture Framework"
-description: "Hva om mange organisatoriske utfordringer egentlig ikke handler om teknologi, prosesser eller struktur, men om hvordan beslutninger tas?"
+description: "What if many organizational challenges are not primarily about technology, processes or structure, but about how decisions are made?"
 date: "2026-07-21"
 publishDate: "2026-07-22"
 
@@ -17,6 +17,7 @@ tags:
   - learning
 
 language: "en"
+translationKey: "introducing-decision-architecture-framework"
 
 featured: true
 draft: false

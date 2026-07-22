@@ -1,4 +1,7 @@
 ---
+language: "no"
+translationKey: "owning-your-content"
+
 title: "Eierskap over eget innhold"
 date: "2026-07-18"
 description: "Hvorfor jeg valgte å bygge en egen plattform fremfor å publisere alt på LinkedIn."

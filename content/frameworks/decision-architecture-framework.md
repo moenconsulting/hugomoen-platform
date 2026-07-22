@@ -1,4 +1,9 @@
 ---
+language: "en"
+visibleInLanguages:
+  - "no"
+  - "en"
+
 title: "Decision Architecture Framework"
 slug: "decision-architecture-framework"
 description: "A framework for improving organizational decision-making under uncertainty."

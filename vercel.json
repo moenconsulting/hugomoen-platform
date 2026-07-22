@@ -1,10 +1,21 @@
 {
   "redirects": [
-    { "source": "/blog", "destination": "/artikler", "permanent": true },
-    { "source": "/blog/:slug", "destination": "/artikler/:slug", "permanent": true },
-    { "source": "/topics", "destination": "/emner", "permanent": true },
-    { "source": "/topics/:slug", "destination": "/emner/:slug", "permanent": true },
-    { "source": "/rammeverk", "destination": "/frameworks", "permanent": true },
-    { "source": "/rammeverk/:slug", "destination": "/frameworks/:slug", "permanent": true }
+    { "source": "/artikler/decision-problem.en", "destination": "/en/articles/decision-problem", "permanent": true },
+    { "source": "/artikler/introducing-decision-architecture", "destination": "/en/articles/introducing-decision-architecture", "permanent": true },
+    { "source": "/artikler/:slug", "destination": "/no/artikler/:slug", "permanent": true },
+    { "source": "/artikler", "destination": "/no/artikler", "permanent": true },
+    { "source": "/blog/:slug", "destination": "/no/artikler/:slug", "permanent": true },
+    { "source": "/blog", "destination": "/no/artikler", "permanent": true },
+    { "source": "/frameworks/beslutningsarkitektur", "destination": "/no/rammeverk/beslutningsarkitektur", "permanent": true },
+    { "source": "/frameworks/:slug", "destination": "/en/frameworks/:slug", "permanent": true },
+    { "source": "/frameworks", "destination": "/en/frameworks", "permanent": true },
+    { "source": "/rammeverk/beslutningsarkitektur", "destination": "/no/rammeverk/beslutningsarkitektur", "permanent": true },
+    { "source": "/rammeverk/:slug", "destination": "/en/frameworks/:slug", "permanent": true },
+    { "source": "/rammeverk", "destination": "/no/rammeverk", "permanent": true },
+    { "source": "/emner/:slug", "destination": "/no/emner/:slug", "permanent": true },
+    { "source": "/emner", "destination": "/no/emner", "permanent": true },
+    { "source": "/topics/:slug", "destination": "/no/emner/:slug", "permanent": true },
+    { "source": "/topics", "destination": "/no/emner", "permanent": true },
+    { "source": "/om", "destination": "/no/om", "permanent": true }
   ]
 }

@@ -1,4 +1,7 @@
 ---
+language: "no"
+translationKey: "when-good-results-are-not-enough"
+
 title: "Når gode resultater ikke er nok"
 description: "Refleksjoner om hvorfor gode resultater ikke alltid får gjennomslag, og hvorfor verdi må forstås, kommuniseres og kobles til organisasjonens mål."
 heroImage: "/images/articles/nar_gode_resultater_ikke_er_nok.png"

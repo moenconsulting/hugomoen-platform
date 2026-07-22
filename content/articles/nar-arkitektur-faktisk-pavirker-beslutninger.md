@@ -1,4 +1,7 @@
 ---
+language: "no"
+translationKey: "when-architecture-actually-influences-decisions"
+
 title: "Når arkitektur faktisk påvirker beslutninger"
 description: "Refleksjoner om hvordan arkitektur får gjennomslag i praksis, og hvorfor beslutningsgrunnlag ofte er viktigere enn dokumentasjon."
 heroImage: "/images/articles/Nar_arkitektur_faktisk_påvirker_beslutninger.png"

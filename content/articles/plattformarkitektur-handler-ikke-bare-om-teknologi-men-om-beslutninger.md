@@ -1,4 +1,7 @@
 ---
+language: "no"
+translationKey: "platform-architecture-is-about-more-than-technology"
+
 title: "Plattformarkitektur handler ikke bare om teknologi, men om beslutninger"
 description: "Refleksjoner om hvorfor plattformarkitektur i praksis handler mer om beslutninger, ansvar og etterprøvbarhet enn om teknologi alene."
 heroImage: "/images/articles/Plattformarkitektur_handler_ikke_bare_om_teknologi_men_om_beslutninger.png"

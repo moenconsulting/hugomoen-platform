@@ -1,4 +1,10 @@
-import { getAllArticles, getListingArticles, type Article } from "./articles";
+import {
+  getAllArticles,
+  getListingArticles,
+  getArticlesByLocale,
+  type Article,
+} from "./articles";
+import type { Locale } from "./i18n";
 
 export interface Topic {
   slug: string;
@@ -64,8 +70,7 @@ function formatTagName(tag: string): string {
   return tag.charAt(0).toUpperCase() + tag.slice(1);
 }
 
-export function getAllTopics(): Topic[] {
-  const articles = getListingArticles();
+function topicsFromArticles(articles: Article[]): Topic[] {
   const tagCounts = new Map<string, number>();
 
   for (const article of articles) {
@@ -87,20 +92,47 @@ export function getAllTopics(): Topic[] {
     .sort((a, b) => b.articleCount - a.articleCount || a.name.localeCompare(b.name, "nb"));
 }
 
+export function getAllTopics(): Topic[] {
+  return topicsFromArticles(getListingArticles());
+}
+
+/** Topics derived only from articles in the given language. */
+export function getTopicsByLocale(locale: Locale): Topic[] {
+  return topicsFromArticles(getArticlesByLocale(locale));
+}
+
 export function getTopicBySlug(slug: string): Topic | null {
   return getAllTopics().find((t) => t.slug === slug) ?? null;
 }
 
-export function getArticlesByTag(tag: string): Article[] {
-  return getListingArticles().filter((a) => a.tags.includes(tag));
+export function getTopicBySlugAndLocale(
+  slug: string,
+  locale: Locale
+): Topic | null {
+  return getTopicsByLocale(locale).find((t) => t.slug === slug) ?? null;
+}
+
+export function getArticlesByTag(tag: string, locale?: Locale): Article[] {
+  const source = locale ? getArticlesByLocale(locale) : getListingArticles();
+  return source.filter((a) => a.tags.includes(tag));
 }
 
 export function getAllTopicSlugs(): string[] {
   return getAllTopics().map((t) => t.slug);
 }
 
-export function getRelatedArticles(slug: string, limit = 3): Article[] {
-  const articles = getListingArticles();
+export function getTopicSlugsByLocale(locale: Locale): string[] {
+  return getTopicsByLocale(locale).map((t) => t.slug);
+}
+
+export function getRelatedArticles(
+  slug: string,
+  limit = 3,
+  locale?: Locale
+): Article[] {
+  const articles = locale
+    ? getArticlesByLocale(locale)
+    : getListingArticles();
   const current = articles.find((a) => a.slug === slug);
   if (!current || current.tags.length === 0) return [];
 

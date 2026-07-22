@@ -10,7 +10,14 @@ import {
   getTranslationLinks,
   type TranslationLink,
 } from "./translations";
-import { isVisible } from "./visibility";
+import { isVisible, normalizeDate } from "./visibility";
+import {
+  localizedPath,
+  isLocale,
+  isVisibleInLocale,
+  normalizeLanguageList,
+  type Locale,
+} from "./i18n";
 
 const articlesDirectory = path.join(process.cwd(), "content", "articles");
 
@@ -27,6 +34,7 @@ export interface Article {
   frameworks: string[];
   language: string;
   translationKey?: string;
+  visibleInLanguages?: string[];
 }
 
 export interface ArticleWithContent extends Article {
@@ -63,7 +71,8 @@ function parseArticle(fileName: string): Article {
     frameworks: Array.isArray(data.framework) ? data.framework : [],
     language: data.language ?? "no",
     translationKey: data.translationKey,
-    publishDate: data.publishDate,
+    visibleInLanguages: normalizeLanguageList(data.visibleInLanguages),
+    publishDate: normalizeDate(data.publishDate),
   };
 }
 
@@ -76,6 +85,7 @@ export function getAllArticles(): Article[] {
     .readdirSync(articlesDirectory)
     .filter((name) => name.endsWith(".md"))
     .map(parseArticle)
+    .filter((a) => Boolean(a.title))
     .filter(isVisible)
     .sort((a, b) => (a.date > b.date ? -1 : 1));
 }
@@ -90,7 +100,7 @@ export async function getArticleBySlug(
   }
 
   const article = parseArticle(`${slug}.md`);
-  if (!isVisible(article)) {
+  if (!article.title || !isVisible(article)) {
     return null;
   }
 
@@ -103,8 +113,11 @@ export async function getArticleBySlug(
   return { ...article, content };
 }
 
-export function getArticleNavigation(slug: string): ArticleNavigation {
-  const articles = getAllArticles();
+export function getArticleNavigation(
+  slug: string,
+  locale?: Locale
+): ArticleNavigation {
+  const articles = locale ? getArticlesByLocale(locale) : getAllArticles();
   const index = articles.findIndex((a) => a.slug === slug);
 
   if (index === -1) {
@@ -131,14 +144,68 @@ export function getAllSlugs(): string[] {
     .map((name) => name.replace(/\.md$/, ""));
 }
 
+/**
+ * Slugs of all articles written in `locale`, regardless of visibility.
+ * Used by generateStaticParams so drafts still get dev-mode pages.
+ */
+export function getArticleSlugsByLocale(locale: Locale): string[] {
+  if (!fs.existsSync(articlesDirectory)) {
+    return [];
+  }
+
+  return fs
+    .readdirSync(articlesDirectory)
+    .filter((name) => name.endsWith(".md"))
+    .map(parseArticle)
+    .filter((a) => Boolean(a.title) && a.language === locale)
+    .map((a) => a.slug);
+}
+
 export function getListingArticles(): Article[] {
   return deduplicateByTranslation(getAllArticles());
 }
 
-export function getArticlesByFramework(frameworkSlug: string): Article[] {
+/**
+ * All articles that should appear in the `locale` experience: articles
+ * written in that language, plus articles that opt into cross-language
+ * visibility via `visibleInLanguages`. Deduplicated by translationKey
+ * (the active-language version wins) so a cross-visible item never
+ * appears alongside its own translation.
+ */
+export function getArticlesByLocale(locale: Locale): Article[] {
   return deduplicateByTranslation(
-    getAllArticles().filter((a) => a.frameworks.includes(frameworkSlug))
+    getAllArticles().filter((a) => isVisibleInLocale(a, locale)),
+    locale
   );
+}
+
+/**
+ * The translation of `article` in `locale`, if one exists — otherwise null.
+ * Used to build direct language-switch links and hreflang alternates.
+ */
+export function getArticleTranslation(
+  article: Article,
+  locale: Locale
+): Article | null {
+  return (
+    findTranslations(article).find((t) => t.language === locale) ?? null
+  );
+}
+
+export function getArticlesByFramework(
+  frameworkSlug: string,
+  locale?: Locale
+): Article[] {
+  const referencing = getAllArticles().filter((a) =>
+    a.frameworks.includes(frameworkSlug)
+  );
+  if (locale) {
+    return deduplicateByTranslation(
+      referencing.filter((a) => isVisibleInLocale(a, locale)),
+      locale
+    );
+  }
+  return deduplicateByTranslation(referencing);
 }
 
 export function getTranslationGroup(article: Article): Article[] {
@@ -152,5 +219,7 @@ export function findTranslations(article: Article): Article[] {
 export function getArticleTranslationLinks(
   article: Article
 ): TranslationLink[] {
-  return getTranslationLinks(article, getAllArticles(), (slug) => `/artikler/${slug}`);
+  return getTranslationLinks(article, getAllArticles(), (slug, language) =>
+    isLocale(language) ? localizedPath(language, "articles", slug) : `/${slug}`
+  );
 }

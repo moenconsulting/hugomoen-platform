@@ -1,4 +1,5 @@
 ---
+language: "no"
 title: "Beslutningsarkitektur"
 description: "Et rammeverk for å strukturere, dokumentere og forbedre arkitekturbeslutninger i organisasjoner."
 draft: true

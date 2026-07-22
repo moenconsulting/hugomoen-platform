@@ -1,4 +1,7 @@
 ---
+language: "no"
+translationKey: "enterprise-architecture-without-central-control"
+
 title: "Virksomhetsarkitektur uten sentral kontroll – er det mulig?"
 description: "Refleksjoner om virksomhetsarkitektur i organisasjoner med høy grad av autonomi, og hvorfor tydelige beslutningsrom ofte er viktigere enn sentral kontroll."
 publishedDate: "2026-04-22"

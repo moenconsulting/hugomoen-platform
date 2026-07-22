@@ -1,4 +1,7 @@
 ---
+language: "no"
+translationKey: "welcome-to-hugo-knowledge-hub"
+
 title: "Velkommen til Hugo Knowledge Hub"
 date: "2026-07-17"
 description: "Om hvorfor jeg bygger Hugo Knowledge Hub, hva du kan finne her, og hvorfor innholdet bor på en plattform jeg selv eier."

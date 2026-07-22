@@ -1,9 +1,8 @@
-export const DEFAULT_LANGUAGE = "no";
+import { DEFAULT_LOCALE, LOCALE_LABELS } from "./i18n";
 
-export const languageLabels: Record<string, string> = {
-  no: "Norsk",
-  en: "English",
-};
+export const DEFAULT_LANGUAGE: string = DEFAULT_LOCALE;
+
+export const languageLabels: Record<string, string> = LOCALE_LABELS;
 
 export interface Translatable {
   slug: string;
@@ -15,6 +14,7 @@ export interface TranslationLink {
   slug: string;
   language: string;
   label: string;
+  href: string;
   active: boolean;
 }
 
@@ -74,7 +74,7 @@ export function deduplicateByTranslation<T extends Translatable>(
 export function getTranslationLinks<T extends Translatable>(
   current: T,
   allItems: T[],
-  buildHref: (slug: string) => string
+  buildHref: (slug: string, language: string) => string
 ): TranslationLink[] {
   const group = getTranslationGroup(current, allItems);
   if (group.length <= 1) return [];
@@ -89,6 +89,7 @@ export function getTranslationLinks<T extends Translatable>(
       slug: item.slug,
       language: item.language,
       label: languageLabels[item.language] ?? item.language,
+      href: buildHref(item.slug, item.language),
       active: item.slug === current.slug,
     }));
 }

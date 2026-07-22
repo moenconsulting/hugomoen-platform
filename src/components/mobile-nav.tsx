@@ -1,17 +1,30 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const links = [
-  { href: "/artikler", label: "Artikler" },
-  { href: "/frameworks", label: "Rammeverk" },
-  { href: "/emner", label: "Emner" },
-  { href: "/om", label: "Om" },
-];
+export interface MobileNavLink {
+  href: string;
+  label: string;
+}
 
-export default function MobileNav() {
+interface MobileNavProps {
+  links: MobileNavLink[];
+  openLabel: string;
+  closeLabel: string;
+  navLabel: string;
+  /** Optional extra content rendered below the links, e.g. a language switcher. */
+  extra?: ReactNode;
+}
+
+export default function MobileNav({
+  links,
+  openLabel,
+  closeLabel,
+  navLabel,
+  extra,
+}: MobileNavProps) {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -56,7 +69,7 @@ export default function MobileNav() {
         onClick={() => setOpen(!open)}
         aria-expanded={open}
         aria-controls="mobile-menu"
-        aria-label={open ? "Lukk meny" : "Åpne meny"}
+        aria-label={open ? closeLabel : openLabel}
         className="flex h-9 w-9 items-center justify-center rounded-md hover:bg-foreground/5 transition-colors"
       >
         <svg
@@ -97,13 +110,15 @@ export default function MobileNav() {
             id="mobile-menu"
             role="dialog"
             aria-modal="true"
-            aria-label="Navigasjon"
+            aria-label={navLabel}
             className="fixed inset-x-0 top-[57px] z-50 border-b border-foreground/10 bg-background px-6 pb-6 pt-4"
           >
             <nav>
               <ul className="flex flex-col gap-1">
                 {links.map((link) => {
-                  const active = pathname === link.href || pathname.startsWith(link.href + "/");
+                  const active =
+                    pathname === link.href ||
+                    pathname.startsWith(link.href + "/");
                   return (
                     <li key={link.href}>
                       <Link
@@ -121,6 +136,11 @@ export default function MobileNav() {
                 })}
               </ul>
             </nav>
+            {extra && (
+              <div className="mt-4 border-t border-foreground/10 pt-4">
+                {extra}
+              </div>
+            )}
           </div>
         </>
       )}
