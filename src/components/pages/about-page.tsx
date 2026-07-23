@@ -22,40 +22,44 @@ const CONTENT: Record<Locale, AboutContent> = {
   no: {
     title: "Om",
     description:
-      "Hugo Moen er Lead Architect med fokus på plattformarkitektur, virksomhetsarkitektur og organisasjonsdesign.",
+      "Hugo Moen er Lead Architect og jobber i skjæringspunktet mellom forretning, produkt og teknologi — med et særlig engasjement for hvordan organisasjoner tar beslutninger.",
     role: "Lead Architect",
     intro: [
-      "Jeg jobber i skjæringspunktet mellom teknologi, arkitektur og organisasjon. Med erfaring fra komplekse virksomheter er jeg opptatt av hvordan arkitekturbeslutninger påvirker alt fra teamautonomi til forretningsresultater.",
-      "Jeg tror på arkitektur som et praktisk verktøy for bedre beslutninger — ikke som dokumentasjon ingen leser.",
+      "Jeg jobber som Lead Architect i skjæringspunktet mellom forretning, produkt og teknologi. Etter min erfaring handler arkitektur ikke bare om teknologi — det handler like mye om beslutninger, ansvar, organisasjonsdesign og evnen til å lære.",
+      "Et tema som har fulgt meg gjennom hele karrieren, er hvordan organisasjoner faktisk tar beslutninger: hvordan felles kontekst etableres, hvordan antakelser utfordres, hvordan begrunnelser dokumenteres — og hvordan man lærer av valgene i ettertid.",
+      "Dette har etter hvert vokst frem til Decision Architecture Framework — et pågående arbeid som springer ut av mange års erfaring med arkitektur, organisasjonsdesign og beslutningsprosesser i komplekse virksomheter.",
     ],
     writeAboutHeading: "Hva jeg skriver om",
     topics: [
       {
         name: "Plattformarkitektur",
         description:
-          "Hvordan plattformer kan muliggjøre autonomi og fart i produktteam.",
+          "Hvordan plattformer skaper autonomi, fart og skalerbarhet i produktorganisasjoner.",
       },
       {
         name: "Virksomhetsarkitektur",
-        description: "Arkitektur som styringsverktøy — ikke bare dokumentasjon.",
-      },
-      {
-        name: "Produktorganisering",
-        description: "Samspillet mellom team, ansvar og tekniske grenser.",
-      },
-      {
-        name: "Autonomi og styring",
-        description: "Balansen mellom sentral kontroll og lokal handlefrihet.",
+        description:
+          "Arkitektur som praktisk verktøy for å koble strategi og gjennomføring — ikke dokumentasjon ingen leser.",
       },
       {
         name: "Beslutningsarkitektur",
         description:
-          "Hvordan arkitektur påvirker — og forbedrer — beslutninger.",
+          "Hvordan organisasjoner etablerer kontekst, utfordrer antakelser og lærer av beslutninger over tid.",
       },
       {
-        name: "Teknologi og organisasjon",
+        name: "Organisasjonsdesign",
         description:
-          "Koblingen mellom tekniske valg og organisatorisk virkelighet.",
+          "Samspillet mellom struktur, ansvar og tekniske grenser — og hvordan det former resultatene.",
+      },
+      {
+        name: "Produktorienterte driftsmodeller",
+        description:
+          "Hvordan organisasjoner bygger team, eierskap og verdistrømmer rundt produkter.",
+      },
+      {
+        name: "Styring og beslutningstaking",
+        description:
+          "Balansen mellom sentral retning og lokal handlefrihet — og hvor beslutningene faktisk bør tas.",
       },
     ],
     contributionsHeading: "Faglige bidrag",
@@ -65,56 +69,58 @@ const CONTENT: Record<Locale, AboutContent> = {
       "Plattformarkitektur",
       "Virksomhetsarkitektur",
       "Beslutningsarkitektur",
-      "Produktorientering og autonomi",
-      "Plattformstyring",
+      "Organisasjonsdesign og produktorientering",
+      "Styring og beslutningsprosesser",
     ],
     contact: "Ta kontakt via LinkedIn for faglig dialog eller forespørsler.",
     hubHeading: "Om Hugo Knowledge Hub",
     hubParagraphs: [
-      "Hugo Knowledge Hub er min personlige plattform for kunnskapsdeling. Her publiserer jeg artikler, refleksjoner og faglig innhold — som regel med utgangspunkt i erfaringer fra praksis.",
-      "Plattformen finnes fordi jeg ønsker å eie det jeg skriver. Innhold som publiseres på LinkedIn eller andre kanaler forsvinner i feeden. Her bor artiklene permanent, i et format jeg kontrollerer.",
-      "LinkedIn brukes for distribusjon og synlighet. Men den kanoniske versjonen av alt innhold lever her.",
+      "Hugo Knowledge Hub er en kunnskapsplattform der artikler, observasjoner og rammeverk får utvikle seg over tid. Innholdet er ikke ferdigstilte sannheter, men et pågående arbeid — rammeverk oppdateres, eksempler legges til, og perspektiver modnes etter hvert som erfaringen vokser.",
+      "Plattformen finnes fordi varig kunnskap fortjener et varig hjem. Innhold som publiseres i sosiale medier forsvinner i feeden etter noen dager. Her lever artiklene og rammeverkene permanent, med historikk og sammenheng — på tvers av norsk og engelsk.",
+      "Decision Architecture Framework er det tydeligste uttrykket for dette: et rammeverk som utvikles åpent, artikkel for artikkel, observasjon for observasjon. LinkedIn brukes til distribusjon og dialog — men den kanoniske versjonen av alt innhold lever her.",
     ],
   },
   en: {
     title: "About",
     description:
-      "Hugo Moen is a Lead Architect focused on platform architecture, enterprise architecture and organization design.",
+      "Hugo Moen is a Lead Architect working at the intersection of business, product and technology — with a particular focus on how organizations make decisions.",
     role: "Lead Architect",
     intro: [
-      "I work at the intersection of technology, architecture and organization. With experience from complex enterprises, I care about how architecture decisions affect everything from team autonomy to business outcomes.",
-      "I believe in architecture as a practical tool for better decisions — not as documentation nobody reads.",
+      "I work as a Lead Architect at the intersection of business, product and technology. In my experience, architecture is not only about technology — it is just as much about decisions, accountability, organization design and the ability to learn.",
+      "One theme has followed me throughout my career: how organizations actually make decisions — how shared context is established, how assumptions are challenged, how rationale is documented, and how the outcomes are learned from afterwards.",
+      "Over time, this grew into the Decision Architecture Framework — an ongoing body of work that emerged naturally from years of experience with architecture, organization design and decision-making in complex enterprises.",
     ],
     writeAboutHeading: "What I write about",
     topics: [
       {
         name: "Platform architecture",
         description:
-          "How platforms can enable autonomy and speed in product teams.",
+          "How platforms create autonomy, speed and scale in product organizations.",
       },
       {
         name: "Enterprise architecture",
         description:
-          "Architecture as a governance tool — not just documentation.",
-      },
-      {
-        name: "Product organization",
-        description:
-          "The interplay between teams, responsibilities and technical boundaries.",
-      },
-      {
-        name: "Autonomy and governance",
-        description:
-          "The balance between central control and local freedom to act.",
+          "Architecture as a practical tool for connecting strategy and execution — not documentation nobody reads.",
       },
       {
         name: "Decision architecture",
-        description: "How architecture affects — and improves — decisions.",
+        description:
+          "How organizations establish context, challenge assumptions and learn from decisions over time.",
       },
       {
-        name: "Technology and organization",
+        name: "Organization design",
         description:
-          "The link between technical choices and organizational reality.",
+          "The interplay between structure, accountability and technical boundaries — and how it shapes outcomes.",
+      },
+      {
+        name: "Product operating models",
+        description:
+          "How organizations build teams, ownership and value streams around products.",
+      },
+      {
+        name: "Governance and decision-making",
+        description:
+          "The balance between central direction and local freedom to act — and where decisions should actually be made.",
       },
     ],
     contributionsHeading: "Professional contributions",
@@ -124,15 +130,15 @@ const CONTENT: Record<Locale, AboutContent> = {
       "Platform architecture",
       "Enterprise architecture",
       "Decision architecture",
-      "Product orientation and autonomy",
-      "Platform governance",
+      "Organization design and product orientation",
+      "Governance and decision processes",
     ],
     contact: "Get in touch via LinkedIn for professional dialogue or inquiries.",
     hubHeading: "About Hugo Knowledge Hub",
     hubParagraphs: [
-      "Hugo Knowledge Hub is my personal platform for knowledge sharing. This is where I publish articles, reflections and professional writing — usually grounded in hands-on experience.",
-      "The platform exists because I want to own what I write. Content published on LinkedIn or other channels disappears into the feed. Here, the articles live permanently, in a format I control.",
-      "LinkedIn is used for distribution and visibility. But the canonical version of everything I write lives here.",
+      "Hugo Knowledge Hub is a knowledge platform where articles, observations and frameworks evolve over time. The content is not a set of finished truths but work in progress — frameworks are updated, examples are added, and perspectives mature as experience grows.",
+      "The platform exists because lasting knowledge deserves a lasting home. Content published on social media disappears into the feed within days. Here, articles and frameworks live permanently, with history and context — across Norwegian and English.",
+      "The Decision Architecture Framework is the clearest expression of this: a framework developed in the open, article by article, observation by observation. LinkedIn is used for distribution and dialogue — but the canonical version of everything published lives here.",
     ],
   },
 };
